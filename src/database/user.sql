@@ -1,5 +1,5 @@
-create database logindb;
-use logindb;
+create database ars;
+use ars;
 
 create table user(
 user_id int auto_increment unique,
@@ -11,6 +11,3 @@ primary key(user_id)
 select * from user;
 drop table user;
 
-insert into user (username,password) values 
-("preeya","aryalprapti@gmail.com","123456")
-;

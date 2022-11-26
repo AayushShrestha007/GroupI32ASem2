@@ -78,12 +78,12 @@ public class ChangeProfile extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(255, 102, 102));
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons8-customer-55.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8-customer-55.png"))); // NOI18N
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons8-name-32.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8-name-32.png"))); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons8-mail-35.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8-mail-35.png"))); // NOI18N
         jLabel4.setText("jLabel4");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -113,7 +113,7 @@ public class ChangeProfile extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(193, 193, 193)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)

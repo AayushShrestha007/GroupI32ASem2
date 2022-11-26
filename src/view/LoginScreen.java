@@ -1,20 +1,20 @@
-package view;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-import controller.UserController;
-import database.DbConnection;
 import javax.swing.*;
-import java.sql.*;
-import models.User;
+import Controller.logincontroller;
+import Model.User;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author UTS
  */
 public class LoginScreen extends javax.swing.JFrame {
-
+dbf d = new dbf();
     /**
      * Creates new form LoginScreen
      */
@@ -33,9 +33,9 @@ public class LoginScreen extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         welcome = new javax.swing.JLabel();
-        tfusername = new javax.swing.JTextField();
-        tfpassword = new javax.swing.JTextField();
-        btnlogin = new javax.swing.JButton();
+        Username = new javax.swing.JTextField();
+        password1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -54,34 +54,39 @@ public class LoginScreen extends javax.swing.JFrame {
         welcome.setText("WELCOME TO ARS");
         jPanel1.add(welcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 150, -1, 50));
 
-        tfusername.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        tfusername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        tfusername.setText("Username");
-        tfusername.setBorder(null);
-        tfusername.setHighlighter(null);
-        tfusername.addActionListener(new java.awt.event.ActionListener() {
+        Username.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Username.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Username.setText("Username");
+        Username.setBorder(null);
+        Username.setHighlighter(null);
+        Username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfusernameActionPerformed(evt);
+                UsernameActionPerformed(evt);
             }
         });
-        jPanel1.add(tfusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 280, 220, 50));
+        jPanel1.add(Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 280, 220, 50));
 
-        tfpassword.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        tfpassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        tfpassword.setText("Password");
-        tfpassword.setBorder(null);
-        jPanel1.add(tfpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 390, 220, 50));
-
-        btnlogin.setBackground(new java.awt.Color(255, 0, 51));
-        btnlogin.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
-        btnlogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnlogin.setText("Login");
-        btnlogin.addActionListener(new java.awt.event.ActionListener() {
+        password1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        password1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        password1.setText("Password");
+        password1.setBorder(null);
+        password1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnloginActionPerformed(evt);
+                password1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 500, 180, 50));
+        jPanel1.add(password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 390, 220, 50));
+
+        jButton1.setBackground(new java.awt.Color(255, 0, 51));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Login");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 500, 180, 50));
 
         jButton2.setBackground(new java.awt.Color(0, 102, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -112,7 +117,7 @@ public class LoginScreen extends javax.swing.JFrame {
         canvas1.setPreferredSize(new java.awt.Dimension(1, 1));
         jPanel1.add(canvas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 730, 70, 2));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/High Fid. Prototype (4).png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/Loginmainimage.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
 
@@ -121,40 +126,47 @@ public class LoginScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
-
-        String username = tfusername.getText();
-        String pass = tfpassword.getText();
-
-        if(evt.getSource()==btnlogin)
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         
+        String uname=Username.getText();
+        String password=password1.getText();
+        User u1= new User(uname,"",password);
+        logincontroller lc= new logincontroller();
+        if(evt.getSource()==jButton1)
             {
-              if(username.equals("") || pass.equals("") ){
-            JOptionPane.showMessageDialog(null, "Please fill all the details");
-        }else{
-        
-           User s1 = new User(username,pass,null);
-            UserController sc= new UserController();
-            int isLogin = sc.testUser(s1);
-            if(isLogin!=0){
-                System.out.println("Success");
-                JOptionPane.showMessageDialog(null,"Login Successfully");
-
-            }else{
-                System.out.println(" Login failed ");
-                           
-            }     
-              }       
-        }
-//            // TODO add your handling code here:
-    }//GEN-LAST:event_btnloginActionPerformed
+               if(uname.equals("") || password.equals("")){
+                    JOptionPane.showMessageDialog(null,"All fields required");
+                }
+               else{
+                   ResultSet r = lc.retrieveflights(u1);
+                   try {
+                       if(r.next()){
+                           JOptionPane.showMessageDialog(null,"login success");
+                           this.setVisible(false);
+                           d.setVisible(true);                           
+                       }
+                       else{
+                           JOptionPane.showMessageDialog(null,"login invalid");
+                       }
+                           } catch (SQLException ex) {
+                       Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+                   
+               }
+            }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void tfusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfusernameActionPerformed
+    private void UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfusernameActionPerformed
+    }//GEN-LAST:event_UsernameActionPerformed
+
+    private void password1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,15 +205,15 @@ public class LoginScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnlogin;
+    private javax.swing.JTextField Username;
     private java.awt.Canvas canvas1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField tfpassword;
-    private javax.swing.JTextField tfusername;
+    private javax.swing.JTextField password1;
     private javax.swing.JLabel welcome;
     // End of variables declaration//GEN-END:variables
 }
