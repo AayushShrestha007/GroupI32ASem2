@@ -1,4 +1,4 @@
-
+package view;
 import java.time.LocalDate;
 import Model.Flights;
 import Controller.ticketsearchcontroller;
@@ -362,6 +362,11 @@ public class Ticket2 extends javax.swing.JFrame {
         buttonOne.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         buttonOne.setForeground(new java.awt.Color(255, 255, 255));
         buttonOne.setText("One Way");
+        buttonOne.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonOneActionPerformed(evt);
+            }
+        });
 
         buttonGroup3.add(jRadioButton4);
         jRadioButton4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -592,6 +597,11 @@ public class Ticket2 extends javax.swing.JFrame {
            
        } 
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void buttonOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOneActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_buttonOneActionPerformed
 
     /**
      * @param args the command line arguments
