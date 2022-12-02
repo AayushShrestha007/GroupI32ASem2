@@ -122,6 +122,11 @@ public class Ticket2 extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRadioButton2.setText("Business");
+        jRadioButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton2MouseClicked(evt);
+            }
+        });
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton2ActionPerformed(evt);
@@ -372,6 +377,11 @@ public class Ticket2 extends javax.swing.JFrame {
         jRadioButton4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jRadioButton4.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton4.setText("Two Way");
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -495,7 +505,9 @@ public class Ticket2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
+
+                        
+
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
@@ -602,6 +614,26 @@ public class Ticket2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_buttonOneActionPerformed
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void jRadioButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton2MouseClicked
+        private void manageCategoriesTableMouseClicked(java.awt.event.MouseEvent evt) {                                                   
+       
+        DefaultTableModel tblModel = (DefaultTableModel)manageCategoriesTable.getModel();
+        String tbleSn = tblModel.getValueAt(manageCategoriesTable.getSelectedRow(),0).toString();
+        String tbleName = tblModel.getValueAt(manageCategoriesTable.getSelectedRow(),1).toString();
+        String tbleDescription = tblModel.getValueAt(manageCategoriesTable.getSelectedRow(),2).toString();
+        
+        
+        snTxt.setText(tbleSn);
+        nameTxt.setText(tbleName);
+        descriptionTxt.setText(tbleDescription);
+        
+        }   
+    }//GEN-LAST:event_jRadioButton2MouseClicked
 
     /**
      * @param args the command line arguments

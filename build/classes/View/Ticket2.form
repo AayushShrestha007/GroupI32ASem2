@@ -467,6 +467,7 @@
                     <Property name="text" type="java.lang.String" value="Business"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButton2MouseClicked"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton2ActionPerformed"/>
                   </Events>
                 </Component>
@@ -805,6 +806,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Two Way"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton4ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
