@@ -626,10 +626,10 @@ public class Ticket2 extends javax.swing.JFrame {
                                                         
        
         DefaultTableModel tblModel = (DefaultTableModel)gTable.getModel();
-        String tbleSn = tblModel.getValueAt(gTable.getSelectedRow(),0).toString();
-        String tbleName = tblModel.getValueAt(gTable.getSelectedRow(),1).toString();
-        String tbleDescription = tblModel.getValueAt(gTable.getSelectedRow(),2).toString();
-        
+        String dep_loc = tblModel.getValueAt(gTable.getSelectedRow(),0).toString();
+        String arri_loc = tblModel.getValueAt(gTable.getSelectedRow(),1).toString();
+        String dep_date = tblModel.getValueAt(gTable.getSelectedRow(),2).toString();
+        String ret_date = tblModel.getValueAt(gTable.getSelectedRow(),3).toString();
         
         
           
@@ -638,9 +638,10 @@ public class Ticket2 extends javax.swing.JFrame {
     private void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton1MouseClicked
         
         DefaultTableModel tblModel = (DefaultTableModel)gTable.getModel();
-        String tbleSn = tblModel.getValueAt(gTable.getSelectedRow(),0).toString();
-        String tbleName = tblModel.getValueAt(gTable.getSelectedRow(),1).toString();
-        String tbleDescription = tblModel.getValueAt(gTable.getSelectedRow(),2).toString();
+        String dep_loc = tblModel.getValueAt(gTable.getSelectedRow(),0).toString();
+        String arri_loc = tblModel.getValueAt(gTable.getSelectedRow(),1).toString();
+        String dep_date = tblModel.getValueAt(gTable.getSelectedRow(),2).toString();
+        String ret_date = tblModel.getValueAt(gTable.getSelectedRow(),3).toString();
         
         
         
