@@ -1,3 +1,4 @@
+package view;
 import javax.swing.*;
 import Model.User;
 import Controller.signupcontroller;
@@ -29,7 +30,7 @@ LoginScreen l1= new LoginScreen();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        cxb1 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -161,9 +162,9 @@ LoginScreen l1= new LoginScreen();
                 .addGap(2, 2, 2))
         );
 
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        cxb1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                cxb1ActionPerformed(evt);
             }
         });
 
@@ -189,7 +190,7 @@ LoginScreen l1= new LoginScreen();
                         .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGap(624, 624, 624)
-                        .addComponent(jCheckBox1)
+                        .addComponent(cxb1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 637, Short.MAX_VALUE))
@@ -228,7 +229,7 @@ LoginScreen l1= new LoginScreen();
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox1)
+                            .addComponent(cxb1)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(2, 2, 2)))
                 .addGap(31, 31, 31)
@@ -264,6 +265,8 @@ LoginScreen l1= new LoginScreen();
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        privacypolicy p1=new privacypolicy();
+        p1.show();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -282,7 +285,7 @@ LoginScreen l1= new LoginScreen();
         String password=jTextField6.getText();
         String cPassword=jTextField7.getText();
 
-        if(uname.equals("") || password.equals("") || cPassword.equals("") || email.equals("") ){
+        if(uname.equals("") || password.equals("") || cPassword.equals("") || email.equals("") || cxb1.isSelected()==false){
             JOptionPane.showMessageDialog(null,"All fields required");
         }
         else{
@@ -290,6 +293,7 @@ LoginScreen l1= new LoginScreen();
                 User u1= new User(uname,email,password);
                 signupcontroller s1= new signupcontroller();
                 s1.insertUser(u1);
+                cxb1.isSelected();
                 JOptionPane.showMessageDialog(null,"Signup successful");
                 this.setVisible(false);
                 l1.setVisible(true);
@@ -388,9 +392,13 @@ LoginScreen l1= new LoginScreen();
         pack();
     }//GEN-LAST:event_jTextField5ActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void cxb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxb1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+        
+
+        
+        
+    }//GEN-LAST:event_cxb1ActionPerformed
 
     
     public static void main(String args[]) {
@@ -418,10 +426,10 @@ LoginScreen l1= new LoginScreen();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox cxb1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

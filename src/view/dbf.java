@@ -1,3 +1,4 @@
+package view;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -10,7 +11,7 @@
 public class dbf extends javax.swing.JFrame {
     Ticket2 t = new Ticket2();
     /**
-     * Creates new form dbf
+     * Creates new form 
      */
     public dbf() {
         initComponents();

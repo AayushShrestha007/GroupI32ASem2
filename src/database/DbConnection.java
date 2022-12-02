@@ -7,7 +7,7 @@
  *
  * @author UTS
  */
-package Database;
+package database;
 import java.sql.*;
 public class DbConnection {
     Connection con;
@@ -22,7 +22,7 @@ public class DbConnection {
             //MAKE SURE YOU KEEP THE mysql_connector.jar file in java/lib folder
             //ALSO SET THE CLASSPATH
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ars", "root", "Nepal2014!");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ars", "root", "sa4330156");
 //            pst = con.prepareStatement("select * from user where username=? and password=?");
 
         } catch (Exception e) {

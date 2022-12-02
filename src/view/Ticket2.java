@@ -1,4 +1,4 @@
-
+package view;
 import java.time.LocalDate;
 import Model.Flights;
 import Controller.ticketsearchcontroller;
@@ -362,11 +362,21 @@ public class Ticket2 extends javax.swing.JFrame {
         buttonOne.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         buttonOne.setForeground(new java.awt.Color(255, 255, 255));
         buttonOne.setText("One Way");
+        buttonOne.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonOneActionPerformed(evt);
+            }
+        });
 
         buttonGroup3.add(jRadioButton4);
         jRadioButton4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jRadioButton4.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton4.setText("Two Way");
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -502,14 +512,101 @@ public class Ticket2 extends javax.swing.JFrame {
     }//GEN-LAST:event_locationActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    
+            
      String dep_loc=location.getText();
      String arri_loc=location1.getText();
      String dep_date=departure.getText();
      String ret_date= returns.getText();
-     if(location.getText().isEmpty()|| location1.getText().isEmpty()|| departure.getText().isEmpty()|| returns.getText().isEmpty()|| buttonGroup3.getSelection()==null){
+     if(buttonOne.isSelected()){
+         if(location.getText().isEmpty()|| location1.getText().isEmpty()|| departure.getText().isEmpty()){
+                         JOptionPane.showMessageDialog(this,"All fields are required");
+
+         }
+         else{
+           Flights f1= new Flights(arri_loc,dep_loc,dep_date);
+           //Flights f2= new Flights(dep_loc,arri_loc,ret_date);
+           ticketsearchcontroller t1= new ticketsearchcontroller();
+           
+           try {
+               
+               
+//               
+               
+               ResultSet flightResult= t1.retrieveflights(f1);
+               //ResultSet flightResult2 = t1.retrieveflights(f2);
+               
+               if(flightResult.next()){
+               flightResult= t1.retrieveflights(f1);
+               
+               DefaultTableModel tb1Model= (DefaultTableModel)gTable.getModel();
+               while(tb1Model.getRowCount() > 0){ tb1Model.removeRow(0);}
+               while (flightResult.next()){
+                   
+                   String resultAirlineName=flightResult.getString("airline_name");
+                   String resultDeparture=flightResult.getString("departure");
+                   String resultDestination= flightResult.getString("destination");
+                   String resultDTime= flightResult.getString("departure_time");
+                   String resultATime= flightResult.getString("arrival_time");
+                   String resultDDate= String.valueOf(flightResult.getDate("departure_date"));
+                   String resultDuration= flightResult.getString("duration");
+                   String resultBPrice= String.valueOf(flightResult.getString("business_price"));
+                   String resultEPrice= String.valueOf(flightResult.getString("economy_price"));
+                   String resultCabin= flightResult.getString("cabin_capacity");
+                   String resultCheckin= flightResult.getString("checkin_capacity");
+                   String resultRefundable= flightResult.getString("refundable");
+                  
+                   
+                   String tbData[] = {resultAirlineName,resultDeparture,resultDestination,resultDTime,resultATime,resultDDate,resultDuration,
+                       resultBPrice,resultEPrice,resultCabin,resultCheckin,resultRefundable
+                    };
+                   
+                   tb1Model.addRow(tbData);
+                   
+               }
+//                   flightResult2 = t1.retrieveflights(f2);
+//                   DefaultTableModel tb1Model2= (DefaultTableModel)rTable.getModel();
+//                   while(tb1Model2.getRowCount() > 0){ tb1Model2.removeRow(0);}
+//                   while (flightResult2.next()){
+//                   String resultAirlineName=flightResult2.getString("airline_name");
+//                   String resultDeparture=flightResult2.getString("departure");
+//                   String resultDestination= flightResult2.getString("destination");
+//                   String resultDTime= flightResult2.getString("departure_time");
+//                   String resultATime= flightResult2.getString("arrival_time");
+//                   String resultDDate= String.valueOf(flightResult2.getDate("departure_date"));
+//                   String resultDuration= flightResult2.getString("duration");
+//                   String resultBPrice= String.valueOf(flightResult2.getString("business_price"));
+//                   String resultEPrice= String.valueOf(flightResult2.getString("economy_price"));
+//                   String resultCabin= flightResult2.getString("cabin_capacity");
+//                   String resultCheckin= flightResult2.getString("checkin_capacity");
+//                   String resultRefundable= String.valueOf(flightResult2.getString("refundable"));
+//                   
+//                   
+//                   String tbData2[] = {resultAirlineName,resultDeparture,resultDestination,resultDTime,resultATime,resultDDate,resultDuration,
+//                       resultBPrice,resultEPrice,resultCabin,resultCheckin,resultRefundable
+//                   };
+//                   
+//                   tb1Model2.addRow(tbData2);
+//               }
+    
+           }
+               else{
+                   JOptionPane.showMessageDialog(this,"No such flights found");
+               }
+           } catch (SQLException ex) {
+               Logger.getLogger(Ticket2.class.getName()).log(Level.SEVERE, null, ex);
+           }
+          
+           }
+        
+        
+     }
+     
+     else if(jRadioButton4.isSelected()){
+     if(location.getText().isEmpty()|| location1.getText().isEmpty()|| departure.getText().isEmpty()||  returns.getText().isEmpty()){
             JOptionPane.showMessageDialog(this,"All fields are required");
         }
-       else{
+        else{
            Flights f1= new Flights(arri_loc,dep_loc,dep_date);
            Flights f2= new Flights(dep_loc,arri_loc,ret_date);
            ticketsearchcontroller t1= new ticketsearchcontroller();
@@ -588,10 +685,30 @@ public class Ticket2 extends javax.swing.JFrame {
            } catch (SQLException ex) {
                Logger.getLogger(Ticket2.class.getName()).log(Level.SEVERE, null, ex);
            }
+           }
           
            
        } 
+     //else{
+         //System.out.println("Hello");
+     //}
+
+              
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void buttonOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOneActionPerformed
+        // TODO add your handling code here: 
+        returns.setEnabled(false);
+    
+    
+    }//GEN-LAST:event_buttonOneActionPerformed
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        // TODO add your handling code here:
+        returns.setEnabled(true);
+       
+        
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     /**
      * @param args the command line arguments
