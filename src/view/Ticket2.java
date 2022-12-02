@@ -136,6 +136,11 @@ public class Ticket2 extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRadioButton1.setText("Economy");
+        jRadioButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton1MouseClicked(evt);
+            }
+        });
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
@@ -506,8 +511,6 @@ public class Ticket2 extends javax.swing.JFrame {
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
 
-                        
-
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
@@ -620,20 +623,28 @@ public class Ticket2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void jRadioButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton2MouseClicked
-        private void manageCategoriesTableMouseClicked(java.awt.event.MouseEvent evt) {                                                   
+                                                        
        
-        DefaultTableModel tblModel = (DefaultTableModel)manageCategoriesTable.getModel();
-        String tbleSn = tblModel.getValueAt(manageCategoriesTable.getSelectedRow(),0).toString();
-        String tbleName = tblModel.getValueAt(manageCategoriesTable.getSelectedRow(),1).toString();
-        String tbleDescription = tblModel.getValueAt(manageCategoriesTable.getSelectedRow(),2).toString();
+        DefaultTableModel tblModel = (DefaultTableModel)gTable.getModel();
+        String tbleSn = tblModel.getValueAt(gTable.getSelectedRow(),0).toString();
+        String tbleName = tblModel.getValueAt(gTable.getSelectedRow(),1).toString();
+        String tbleDescription = tblModel.getValueAt(gTable.getSelectedRow(),2).toString();
         
         
-        snTxt.setText(tbleSn);
-        nameTxt.setText(tbleName);
-        descriptionTxt.setText(tbleDescription);
         
-        }   
+          
     }//GEN-LAST:event_jRadioButton2MouseClicked
+
+    private void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton1MouseClicked
+        
+        DefaultTableModel tblModel = (DefaultTableModel)gTable.getModel();
+        String tbleSn = tblModel.getValueAt(gTable.getSelectedRow(),0).toString();
+        String tbleName = tblModel.getValueAt(gTable.getSelectedRow(),1).toString();
+        String tbleDescription = tblModel.getValueAt(gTable.getSelectedRow(),2).toString();
+        
+        
+        
+    }//GEN-LAST:event_jRadioButton1MouseClicked
 
     /**
      * @param args the command line arguments
