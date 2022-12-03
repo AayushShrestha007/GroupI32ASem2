@@ -14,6 +14,7 @@ arrival_time varchar(20),
 departure_date date,
 economy_price int,
 business_price int,
+-- use ars;
 flight_type varchar(30));
 drop table flights;
 select * from flights;

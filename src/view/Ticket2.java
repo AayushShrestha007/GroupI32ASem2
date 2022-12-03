@@ -71,6 +71,7 @@ public class Ticket2 extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         buttonOne = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -378,6 +379,16 @@ public class Ticket2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup3.add(jRadioButton3);
+        jRadioButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton3.setText("Mountain Flight");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
@@ -385,12 +396,14 @@ public class Ticket2 extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                 .addGap(200, 200, 200)
                 .addComponent(buttonOne, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(399, 399, 399)
+                .addGap(228, 228, 228)
                 .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 350, Short.MAX_VALUE)
+                .addGap(166, 166, 166)
+                .addComponent(jRadioButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(jpanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -419,7 +432,8 @@ public class Ticket2 extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(buttonOne)
-                            .addComponent(jRadioButton4))
+                            .addComponent(jRadioButton4)
+                            .addComponent(jRadioButton3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jpanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -518,6 +532,10 @@ public class Ticket2 extends javax.swing.JFrame {
      String arri_loc=location1.getText();
      String dep_date=departure.getText();
      String ret_date= returns.getText();
+     if(location.getText().isEmpty()|| location1.getText().isEmpty()|| departure.getText().isEmpty()||buttonGroup3.getSelection()==null){
+         JOptionPane.showMessageDialog(this,"All fields are required");
+
+     }
      if(buttonOne.isSelected()){
          if(location.getText().isEmpty()|| location1.getText().isEmpty()|| departure.getText().isEmpty()){
                          JOptionPane.showMessageDialog(this,"All fields are required");
@@ -689,9 +707,98 @@ public class Ticket2 extends javax.swing.JFrame {
           
            
        } 
-     //else{
-         //System.out.println("Hello");
-     //}
+//     else if(jRadioButton3.isSelected()){
+               
+    
+    else if(jRadioButton3.isSelected()){
+         if(location.getText().isEmpty()|| location1.getText().isEmpty()|| departure.getText().isEmpty()){
+                         JOptionPane.showMessageDialog(this,"All fields are required");
+        }
+        else{
+           Flights f1= new Flights(arri_loc,dep_loc,dep_date);
+//           Flights f2= new Flights(dep_loc,arri_loc,dep_date);
+           ticketsearchcontroller t1= new ticketsearchcontroller();
+           
+           try {
+               
+               
+//               
+               
+               ResultSet flightResult= t1.retrieveflights(f1);
+//               ResultSet flightResult2 = t1.retrieveflights(f2);
+               
+               if(flightResult.next()){
+               flightResult= t1.retrieveflights(f1);
+               
+               DefaultTableModel tb1Model3= (DefaultTableModel)gTable.getModel();
+               while(tb1Model3.getRowCount() > 0){ tb1Model3.removeRow(0);}
+               while (flightResult.next()){
+                   
+                   String resultAirlineName=flightResult.getString("airline_name");
+                   String resultDeparture=flightResult.getString("departure");
+                   String resultDestination= flightResult.getString("destination");
+                   String resultDTime= flightResult.getString("departure_time");
+                   String resultATime= flightResult.getString("arrival_time");
+                   String resultDDate= String.valueOf(flightResult.getDate("departure_date"));
+                   String resultDuration= flightResult.getString("duration");
+                   String resultBPrice= String.valueOf(flightResult.getString("business_price"));
+                   String resultEPrice= String.valueOf(flightResult.getString("economy_price"));
+                   String resultCabin= flightResult.getString("cabin_capacity");
+                   String resultCheckin= flightResult.getString("checkin_capacity");
+                   String resultRefundable= flightResult.getString("refundable");
+                  
+                   
+//                   String tbData[] = {resultAirlineName,resultDeparture,resultDestination,resultDTime,resultATime,resultDDate,resultDuration,
+//                       resultBPrice,resultEPrice,resultCabin,resultCheckin,resultRefundable
+//                    };
+//                   
+//                   tb1Model.addRow(tbData);
+                   
+//               }
+//                   flightResult2 = t1.retrieveflights(f2);
+//                   DefaultTableModel tb1Model2= (DefaultTableModel)rTable.getModel();
+//                   while(tb1Model2.getRowCount() > 0){ tb1Model2.removeRow(0);}
+//                   while (flightResult2.next()){
+//                   String resultAirlineName=flightResult2.getString("airline_name");
+//                   String resultDeparture=flightResult2.getString("departure");
+//                   String resultDestination= flightResult2.getString("destination");
+//                   String resultDTime= flightResult2.getString("departure_time");
+//                   String resultATime= flightResult2.getString("arrival_time");
+//                   String resultDDate= String.valueOf(flightResult2.getDate("departure_date"));
+//                   String resultDuration= flightResult2.getString("duration");
+//                   String resultBPrice= String.valueOf(flightResult2.getString("business_price"));
+//                   String resultEPrice= String.valueOf(flightResult2.getString("economy_price"));
+//                   String resultCabin= flightResult2.getString("cabin_capacity");
+//                   String resultCheckin= flightResult2.getString("checkin_capacity");
+//                   String resultRefundable= String.valueOf(flightResult2.getString("refundable"));
+                   
+                   
+                   String tbData[] = {resultAirlineName,resultDeparture,resultDestination,resultDTime,resultATime,resultDDate,resultDuration,
+                       resultBPrice,resultEPrice,resultCabin,resultCheckin,resultRefundable
+                   };
+                   
+                   tb1Model3.addRow(tbData);
+               }
+                   
+//                   
+//                   
+//                   
+//                   
+//               
+           
+           }
+               else{
+                   JOptionPane.showMessageDialog(this,"No such flights found");
+               }
+           } catch (SQLException ex) {
+               Logger.getLogger(Ticket2.class.getName()).log(Level.SEVERE, null, ex);
+           }
+      }
+        
+         
+     }
+     
+//     
 
               
     }//GEN-LAST:event_jButton9ActionPerformed
@@ -709,6 +816,11 @@ public class Ticket2 extends javax.swing.JFrame {
        
         
     }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        // TODO add your handling code here:
+        returns.setEnabled(false);
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -776,6 +888,7 @@ public class Ticket2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
