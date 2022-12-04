@@ -88,7 +88,7 @@ public class Ticket2 extends javax.swing.JFrame {
                 "Airline Name", "Location 1", "Location 2", "Departure Time", "Arrival Time", "Departure Date", "Duration", "Business Price", "Economy Price", "Cabin Capacity", "Checkin Capacity", "Refundable"
             }
         ));
-        gTable.setEnabled(false);
+        gTable.setFocusable(false);
         jScrollPane1.setViewportView(gTable);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -104,7 +104,7 @@ public class Ticket2 extends javax.swing.JFrame {
                 "Airline Name", "Location 2", "Location 1", "Departure Time", "Arrival Time", "Departure Date", "Duration", "Business Price", "Economy Price", "Cabin Capacity", "Checkin Capacity", "Refundable"
             }
         ));
-        rTable.setEnabled(false);
+        rTable.setFocusable(false);
         jScrollPane3.setViewportView(rTable);
 
         jButton8.setBackground(new java.awt.Color(0, 51, 153));
@@ -515,6 +515,25 @@ public class Ticket2 extends javax.swing.JFrame {
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
+        if (buttonOne.isSelected()){
+        int column= 7;
+        int row= gTable.getSelectedRow();
+        String value= gTable.getModel().getValueAt(row,column).toString();
+        System.out.println(value);}
+        
+        else if(jRadioButton4.isSelected()){
+            int column1 =7;
+            int column2=7;
+        
+            int row1=gTable.getSelectedRow();
+            int row2=rTable.getSelectedRow();
+            String value1=gTable.getModel().getValueAt(row1,column1).toString();
+            String value2=rTable.getModel().getValueAt(row2,column2).toString();
+            int value3= Integer.parseInt (value1)+Integer.parseInt(value2);
+            System.out.println(value3);
+            
+        }
+        
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void locationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_locationActionPerformed
@@ -625,24 +644,24 @@ public class Ticket2 extends javax.swing.JFrame {
     private void jRadioButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton2MouseClicked
                                                         
        
-        DefaultTableModel tblModel = (DefaultTableModel)gTable.getModel();
-        String dep_loc = tblModel.getValueAt(gTable.getSelectedRow(),0).toString();
-        String arri_loc = tblModel.getValueAt(gTable.getSelectedRow(),1).toString();
-        String dep_date = tblModel.getValueAt(gTable.getSelectedRow(),2).toString();
-        String ret_date = tblModel.getValueAt(gTable.getSelectedRow(),3).toString();
-        
+//        DefaultTableModel tblModel = (DefaultTableModel)gTable.getModel();
+//        String dep_loc = tblModel.getValueAt(gTable.getSelectedRow(),0).toString();
+//        String arri_loc = tblModel.getValueAt(gTable.getSelectedRow(),1).toString();
+//        String dep_date = tblModel.getValueAt(gTable.getSelectedRow(),2).toString();
+//        String ret_date = tblModel.getValueAt(gTable.getSelectedRow(),3).toString();
+//        
         
           
     }//GEN-LAST:event_jRadioButton2MouseClicked
 
     private void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton1MouseClicked
         
-        DefaultTableModel tblModel = (DefaultTableModel)gTable.getModel();
-        String dep_loc = tblModel.getValueAt(gTable.getSelectedRow(),0).toString();
-        String arri_loc = tblModel.getValueAt(gTable.getSelectedRow(),1).toString();
-        String dep_date = tblModel.getValueAt(gTable.getSelectedRow(),2).toString();
-        String ret_date = tblModel.getValueAt(gTable.getSelectedRow(),3).toString();
-        
+//        DefaultTableModel tblModel = (DefaultTableModel)gTable.getModel();
+//        String dep_loc = tblModel.getValueAt(gTable.getSelectedRow(),0).toString();
+//        String arri_loc = tblModel.getValueAt(gTable.getSelectedRow(),1).toString();
+//        String dep_date = tblModel.getValueAt(gTable.getSelectedRow(),2).toString();
+//        String ret_date = tblModel.getValueAt(gTable.getSelectedRow(),3).toString();
+//        
         
         
     }//GEN-LAST:event_jRadioButton1MouseClicked
