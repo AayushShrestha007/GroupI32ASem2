@@ -109,6 +109,11 @@ public boolean testUserdetail(){
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 14, 90, 99));
 
         tf_E_Pass.setText("Enter Existing Password");
+        tf_E_Pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_E_PassActionPerformed(evt);
+            }
+        });
         jPanel1.add(tf_E_Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(757, 244, 240, 38));
 
         tf_N_Email.setText("Enter New Email");
@@ -264,6 +269,10 @@ public boolean testUserdetail(){
     private void tf_E_EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_E_EmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_E_EmailActionPerformed
+
+    private void tf_E_PassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_E_PassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_E_PassActionPerformed
 
     /**
      * @param args the command line arguments
