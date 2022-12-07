@@ -4,6 +4,25 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+import Model.Weather;
+import java.sql.SQLException;
+//import java.time.LocalDate;
+////import Controller.ticketsearchcontroller;
+import Controller.weathercontroller;
+
+//import java.sql.SQLException;
+////import java.util.logging.Level
+import java.util.logging.Logger;
+//import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTextField;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 /**
  *
  * @author 20pra
@@ -11,7 +30,7 @@ package view;
 public class weatherdisplay extends javax.swing.JFrame {
 
     /**
-     * Creates new form weatherdisplay
+     * 
      */
     public weatherdisplay() {
         initComponents();
@@ -28,8 +47,10 @@ public class weatherdisplay extends javax.swing.JFrame {
 
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        sTable = new javax.swing.JTable();
+        smriti = new javax.swing.JTextField();
+        pramesh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1443, 807));
@@ -42,9 +63,39 @@ public class weatherdisplay extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Select Location");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(51, 0, 255));
-        jButton1.setText("Check Weather");
+        sTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Location", "Temperature", "Forecast"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(sTable);
+
+        smriti.setText("jTextField1");
+        smriti.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                smritiActionPerformed(evt);
+            }
+        });
+
+        pramesh.setText("jButton1");
+        pramesh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prameshActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -53,23 +104,28 @@ public class weatherdisplay extends javax.swing.JFrame {
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGap(192, 192, 192)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1094, Short.MAX_VALUE))
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(smriti, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pramesh))
+                        .addGap(241, 241, 241)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(419, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(410, Short.MAX_VALUE))
+                .addGap(163, 163, 163)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(smriti, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(pramesh)))
+                .addContainerGap(447, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -89,6 +145,54 @@ public class weatherdisplay extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void smritiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_smritiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_smritiActionPerformed
+
+    private void prameshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prameshActionPerformed
+        // TODO add your handling code here:
+        String weather_field= smriti.getText();
+        
+        
+        if(smriti.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Please enter the location");
+        }
+        else{
+               Weather w1= new Weather(weather_field);
+               weathercontroller wc1= new weathercontroller();
+               try{
+                   
+                   ResultSet weatherResult=wc1.retrieveweather(w1);
+                   if(weatherResult.next()){
+                       weatherResult=wc1.retrieveweather(w1);
+                       
+                    DefaultTableModel tbl1Model=(DefaultTableModel)sTable.getModel();
+                    while(tbl1Model.getRowCount() > 0){ tbl1Model.removeRow(0);}
+                    while (weatherResult.next()){
+                   String resultLocation=weatherResult.getString("location");
+                   String resultTemperature=weatherResult.getString("temperature");
+                   String resultForecast= weatherResult.getString("forecaast");
+                   
+                   String tbData[] = {resultLocation,resultTemperature,resultForecast
+                    };
+                   
+                   tbl1Model.addRow(tbData);
+                        
+                        
+                    }
+                   }
+               }
+                catch(SQLException ex){
+                    
+                        Logger.getLogger(weatherdisplay.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
+
+
+           
+
+    }//GEN-LAST:event_prameshActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,9 +230,11 @@ public class weatherdisplay extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
+    private javax.swing.JButton pramesh;
+    private javax.swing.JTable sTable;
+    private javax.swing.JTextField smriti;
     // End of variables declaration//GEN-END:variables
 }
