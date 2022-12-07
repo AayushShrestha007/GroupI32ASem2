@@ -172,7 +172,7 @@ public class weatherdisplay extends javax.swing.JFrame {
                     while (weatherResult.next()){
                    String resultLocation=weatherResult.getString("location");
                    String resultTemperature=weatherResult.getString("temperature");
-                   String resultForecast= weatherResult.getString("forecaast");
+                   String resultForecast= weatherResult.getString("forecast");
                    
                    String tbData[] = {resultLocation,resultTemperature,resultForecast
                     };

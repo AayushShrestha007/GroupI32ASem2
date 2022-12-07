@@ -20,7 +20,7 @@ public class weathercontroller {
         String location = weather.getLocation();
        //String temperature= weather.getTemperature();
 //        String forecast  = weather.getForecast();
-        String insertsearchquery = "select * from weather where location= '"+location+"";
+        String insertsearchquery = "select * from weathers where location= '"+location+"'";
         ResultSet newResult;
         newResult = db.retrieve(insertsearchquery);
         return newResult;
