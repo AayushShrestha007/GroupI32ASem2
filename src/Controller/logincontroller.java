@@ -20,4 +20,13 @@ public class logincontroller {
         loginresult = db.retrieve(searchquery);
         return loginresult;
     }
+        public ResultSet testuser(User user){
+        String uname = user.getUsername();
+        String password = user.getPassword();
+        String email=user.getEmail();
+        String searchquery = "select * from user where username='"+uname+"' AND password='"+password+"'AND email='"+email+"' ";
+        ResultSet loginresult;
+        loginresult = db.retrieve(searchquery);
+        return loginresult;
+    }
 }
