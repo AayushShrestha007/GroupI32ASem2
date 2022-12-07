@@ -7,10 +7,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
+import javax.swing.JTextField;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+
 
 public class Ticket2 extends javax.swing.JFrame {
 
@@ -62,15 +64,20 @@ public class Ticket2 extends javax.swing.JFrame {
         location = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         departure = new javax.swing.JTextField();
+        jcall1 = new com.toedter.calendar.JDateChooser();
+        jButton10 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         location1 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         returns = new javax.swing.JTextField();
+        jcall2 = new com.toedter.calendar.JDateChooser();
+        donb = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         buttonOne = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -276,34 +283,63 @@ public class Ticket2 extends javax.swing.JFrame {
         jLabel9.setText("Date of departure");
 
         departure.setBackground(new java.awt.Color(204, 204, 255));
+        departure.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                departureActionPerformed(evt);
+            }
+        });
+
+        jcall1.setDateFormatString("yyyy-MM-dd");
+        jcall1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jcall1MouseClicked(evt);
+            }
+        });
+
+        jButton10.setText("Done");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpanel4Layout = new javax.swing.GroupLayout(jpanel4);
         jpanel4.setLayout(jpanel4Layout);
         jpanel4Layout.setHorizontalGroup(
             jpanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
             .addGroup(jpanel4Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jpanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(departure, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel9)
+                    .addGroup(jpanel4Layout.createSequentialGroup()
+                        .addComponent(departure, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jcall1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(197, Short.MAX_VALUE))
         );
         jpanel4Layout.setVerticalGroup(
             jpanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanel4Layout.createSequentialGroup()
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(departure, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addGroup(jpanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jpanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jpanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jcall1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(departure, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)))
+                    .addComponent(jButton10))
+                .addGap(0, 23, Short.MAX_VALUE))
         );
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -320,11 +356,20 @@ public class Ticket2 extends javax.swing.JFrame {
 
         returns.setBackground(new java.awt.Color(204, 204, 255));
 
+        jcall2.setDateFormatString("yyyy-MM-dd");
+
+        donb.setText("Done");
+        donb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                donbActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -333,20 +378,29 @@ public class Ticket2 extends javax.swing.JFrame {
                         .addComponent(jLabel10)
                         .addComponent(location1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(returns, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jcall2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(donb, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(location1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(returns, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(location1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jcall2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(returns, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)))
+                    .addComponent(donb))
                 .addGap(0, 28, Short.MAX_VALUE))
         );
 
@@ -378,6 +432,16 @@ public class Ticket2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup3.add(jRadioButton3);
+        jRadioButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton3.setText("Mountain Flight");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
@@ -385,12 +449,14 @@ public class Ticket2 extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                 .addGap(200, 200, 200)
                 .addComponent(buttonOne, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(399, 399, 399)
+                .addGap(228, 228, 228)
                 .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 350, Short.MAX_VALUE)
+                .addGap(166, 166, 166)
+                .addComponent(jRadioButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(jpanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -419,7 +485,8 @@ public class Ticket2 extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(buttonOne)
-                            .addComponent(jRadioButton4))
+                            .addComponent(jRadioButton4)
+                            .addComponent(jRadioButton3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jpanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -465,7 +532,7 @@ public class Ticket2 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -518,6 +585,11 @@ public class Ticket2 extends javax.swing.JFrame {
      String arri_loc=location1.getText();
      String dep_date=departure.getText();
      String ret_date= returns.getText();
+     
+     if(location.getText().isEmpty()|| location1.getText().isEmpty()|| departure.getText().isEmpty()||buttonGroup3.getSelection()==null){
+         JOptionPane.showMessageDialog(this,"All fields are required");
+
+     }
      if(buttonOne.isSelected()){
          if(location.getText().isEmpty()|| location1.getText().isEmpty()|| departure.getText().isEmpty()){
                          JOptionPane.showMessageDialog(this,"All fields are required");
@@ -689,9 +761,98 @@ public class Ticket2 extends javax.swing.JFrame {
           
            
        } 
-     //else{
-         //System.out.println("Hello");
-     //}
+//     else if(jRadioButton3.isSelected()){
+               
+    
+    else if(jRadioButton3.isSelected()){
+         if(location.getText().isEmpty()|| location1.getText().isEmpty()|| departure.getText().isEmpty()){
+                         JOptionPane.showMessageDialog(this,"All fields are required");
+        }
+        else{
+           Flights f1= new Flights(arri_loc,dep_loc,dep_date);
+//           Flights f2= new Flights(dep_loc,arri_loc,dep_date);
+           ticketsearchcontroller t1= new ticketsearchcontroller();
+           
+           try {
+               
+               
+//               
+               
+               ResultSet flightResult= t1.retrieveflights(f1);
+//               ResultSet flightResult2 = t1.retrieveflights(f2);
+               
+               if(flightResult.next()){
+               flightResult= t1.retrieveflights(f1);
+               
+               DefaultTableModel tb1Model3= (DefaultTableModel)gTable.getModel();
+               while(tb1Model3.getRowCount() > 0){ tb1Model3.removeRow(0);}
+               while (flightResult.next()){
+                   
+                   String resultAirlineName=flightResult.getString("airline_name");
+                   String resultDeparture=flightResult.getString("departure");
+                   String resultDestination= flightResult.getString("destination");
+                   String resultDTime= flightResult.getString("departure_time");
+                   String resultATime= flightResult.getString("arrival_time");
+                   String resultDDate= String.valueOf(flightResult.getDate("departure_date"));
+                   String resultDuration= flightResult.getString("duration");
+                   String resultBPrice= String.valueOf(flightResult.getString("business_price"));
+                   String resultEPrice= String.valueOf(flightResult.getString("economy_price"));
+                   String resultCabin= flightResult.getString("cabin_capacity");
+                   String resultCheckin= flightResult.getString("checkin_capacity");
+                   String resultRefundable= flightResult.getString("refundable");
+                  
+                   
+//                   String tbData[] = {resultAirlineName,resultDeparture,resultDestination,resultDTime,resultATime,resultDDate,resultDuration,
+//                       resultBPrice,resultEPrice,resultCabin,resultCheckin,resultRefundable
+//                    };
+//                   
+//                   tb1Model.addRow(tbData);
+                   
+//               }
+//                   flightResult2 = t1.retrieveflights(f2);
+//                   DefaultTableModel tb1Model2= (DefaultTableModel)rTable.getModel();
+//                   while(tb1Model2.getRowCount() > 0){ tb1Model2.removeRow(0);}
+//                   while (flightResult2.next()){
+//                   String resultAirlineName=flightResult2.getString("airline_name");
+//                   String resultDeparture=flightResult2.getString("departure");
+//                   String resultDestination= flightResult2.getString("destination");
+//                   String resultDTime= flightResult2.getString("departure_time");
+//                   String resultATime= flightResult2.getString("arrival_time");
+//                   String resultDDate= String.valueOf(flightResult2.getDate("departure_date"));
+//                   String resultDuration= flightResult2.getString("duration");
+//                   String resultBPrice= String.valueOf(flightResult2.getString("business_price"));
+//                   String resultEPrice= String.valueOf(flightResult2.getString("economy_price"));
+//                   String resultCabin= flightResult2.getString("cabin_capacity");
+//                   String resultCheckin= flightResult2.getString("checkin_capacity");
+//                   String resultRefundable= String.valueOf(flightResult2.getString("refundable"));
+                   
+                   
+                   String tbData[] = {resultAirlineName,resultDeparture,resultDestination,resultDTime,resultATime,resultDDate,resultDuration,
+                       resultBPrice,resultEPrice,resultCabin,resultCheckin,resultRefundable
+                   };
+                   
+                   tb1Model3.addRow(tbData);
+               }
+                   
+//                   
+//                   
+//                   
+//                   
+//               
+           
+           }
+               else{
+                   JOptionPane.showMessageDialog(this,"No such flights found");
+               }
+           } catch (SQLException ex) {
+               Logger.getLogger(Ticket2.class.getName()).log(Level.SEVERE, null, ex);
+           }
+      }
+        
+         
+     }
+     
+//     
 
               
     }//GEN-LAST:event_jButton9ActionPerformed
@@ -709,6 +870,44 @@ public class Ticket2 extends javax.swing.JFrame {
        
         
     }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        // TODO add your handling code here:
+        returns.setEnabled(false);
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void departureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departureActionPerformed
+        // TODO add your handling code here:
+//        departure.setText();
+        
+    
+        
+        
+        
+        
+    }//GEN-LAST:event_departureActionPerformed
+
+    private void jcall1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcall1MouseClicked
+        // TODO add your handling code here:
+        
+//        departure.show();
+    }//GEN-LAST:event_jcall1MouseClicked
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+//        Date date = jcall1.getDate();
+        String selectdate=((JTextField)jcall1.getDateEditor().getUiComponent()).getText();
+       
+//          String strDate = DateFormat.getDateInstance().format(date);
+        departure.setText(selectdate);
+        
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void donbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donbActionPerformed
+        // TODO add your handling code here:
+        String selectdat=((JTextField)jcall2.getDateEditor().getUiComponent()).getText();
+        returns.setText(selectdat);
+    }//GEN-LAST:event_donbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -751,8 +950,10 @@ public class Ticket2 extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JRadioButton buttonOne;
     private javax.swing.JTextField departure;
+    private javax.swing.JButton donb;
     private javax.swing.JTable gTable;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -776,9 +977,12 @@ public class Ticket2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private com.toedter.calendar.JDateChooser jcall1;
+    private com.toedter.calendar.JDateChooser jcall2;
     private javax.swing.JPanel jpanel4;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTextField location;
