@@ -208,52 +208,6 @@ public boolean testUserdetail(){
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
-        String E_user = tf_E_User.getText();
-        String E_email = tf_E_Email.getText();
-        String E_pass = tf_E_Pass.getText();
-        String N_user = tf_N_username.getText();
-        String N_email = tf_N_Email.getText();
-        String N_pass = tf_N_pass.getText();
-
-//
-        if(evt.getSource()==btnsave)
-            {
-              if(E_user.equals("") || E_email.equals("") || E_pass.equals("") || N_user.equals("") || N_email.equals("") || N_pass.equals("") ){
-            JOptionPane.showMessageDialog(null, "Please fill all the details");
-        }else {
-                if(testUserdetail()==false){
-                
-                    System.out.println("Invalid Existing User Data!!");
-                
-                }else{
-                    try{
-                    
-                    String query ="update user set username='"+N_user+"', email='"+N_email+"', password='"+N_pass+"' where email='"+E_email+"'";
-                    Connection conn=DbConnection.connectdb();
-                    PreparedStatement pst=conn.prepareStatement(query);
-                    pst.execute();
-                    
-                        System.out.println("User Details Updated Successfully");
-                        JOptionPane.showMessageDialog(null, "User Details Updated Successfully");
-                    
-                    
-                    
-                    
-                    
-                    }catch(SQLException ex){
-                        System.out.println(ex);
-                    }
-                }
-                
-                }
-}
-    }//GEN-LAST:event_btnsaveActionPerformed
-
-    private void tf_N_EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_N_EmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_N_EmailActionPerformed
-
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -270,10 +224,58 @@ public boolean testUserdetail(){
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_E_EmailActionPerformed
 
+    private void tf_N_EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_N_EmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_N_EmailActionPerformed
+
     private void tf_E_PassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_E_PassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_E_PassActionPerformed
 
+    private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
+        String E_user = tf_E_User.getText();
+        String E_email = tf_E_Email.getText();
+        String E_pass = tf_E_Pass.getText();
+        String N_user = tf_N_username.getText();
+        String N_email = tf_N_Email.getText();
+        String N_pass = tf_N_pass.getText();
+
+        //
+        if(evt.getSource()==btnsave)
+        {
+            if(E_user.equals("") || E_email.equals("") || E_pass.equals("") || N_user.equals("") || N_email.equals("") || N_pass.equals("") ){
+                JOptionPane.showMessageDialog(null, "Please fill all the details");
+            }else {
+                if(testUserdetail()==false){
+
+                    System.out.println("Invalid Existing User Data!!");
+
+                }else{
+                    try{
+
+                        String query ="update user set username='"+N_user+"', email='"+N_email+"', password='"+N_pass+"' where email='"+E_email+"'";
+                        Connection conn=DbConnection.connectdb();
+                        PreparedStatement pst=conn.prepareStatement(query);
+                        pst.execute();
+
+                        System.out.println("User Details Updated Successfully");
+                        JOptionPane.showMessageDialog(null, "User Details Updated Successfully");
+
+                    }catch(SQLException ex){
+                        System.out.println(ex);
+                    }
+                }
+
+            }
+            
+            
+        }
+    }//GEN-LAST:event_btnsaveActionPerformed
+java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new dbf().setVisible(true);
+            }
+        });
     /**
      * @param args the command line arguments
      */
