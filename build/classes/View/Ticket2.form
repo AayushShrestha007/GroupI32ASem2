@@ -622,9 +622,7 @@
                               <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="departure" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jcall1" min="-2" pref="43" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                                   <Component id="jButton10" min="-2" pref="60" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -645,10 +643,7 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jcall1" max="32767" attributes="0"/>
-                                      <Component id="departure" pref="28" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="departure" min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jButton10" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -701,14 +696,6 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="departureActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="jcall1">
-                  <Properties>
-                    <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jcall1MouseClicked"/>
-                  </Events>
-                </Component>
                 <Component class="javax.swing.JButton" name="jButton10">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Done"/>
@@ -740,9 +727,7 @@
                                   <Component id="returns" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jcall2" min="-2" pref="45" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                           <Component id="donb" min="-2" pref="60" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -761,10 +746,7 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jcall2" max="32767" attributes="0"/>
-                                      <Component id="returns" pref="28" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="returns" min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
                               <Component id="donb" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -809,11 +791,6 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="cc" red="cc" type="rgb"/>
                     </Property>
-                  </Properties>
-                </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="jcall2">
-                  <Properties>
-                    <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="donb">
