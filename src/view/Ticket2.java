@@ -65,6 +65,7 @@ public class Ticket2 extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         departure = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
+        jcall1 = new com.toedter.calendar.JDateChooser();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -72,6 +73,7 @@ public class Ticket2 extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         returns = new javax.swing.JTextField();
         donb = new javax.swing.JButton();
+        jcall2 = new com.toedter.calendar.JDateChooser();
         jButton9 = new javax.swing.JButton();
         buttonOne = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
@@ -93,7 +95,7 @@ public class Ticket2 extends javax.swing.JFrame {
                 "Airline Name", "Location 1", "Location 2", "Departure Time", "Arrival Time", "Departure Date", "Duration", "Business Price", "Economy Price", "Cabin Capacity", "Checkin Capacity", "Refundable"
             }
         ));
-        gTable.setEnabled(false);
+        gTable.setFocusable(false);
         jScrollPane1.setViewportView(gTable);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -109,7 +111,8 @@ public class Ticket2 extends javax.swing.JFrame {
                 "Airline Name", "Location 2", "Location 1", "Departure Time", "Arrival Time", "Departure Date", "Duration", "Business Price", "Economy Price", "Cabin Capacity", "Checkin Capacity", "Refundable"
             }
         ));
-        rTable.setEnabled(false);
+        rTable.setFocusable(false);
+        rTable.setRequestFocusEnabled(false);
         jScrollPane3.setViewportView(rTable);
 
         jButton8.setBackground(new java.awt.Color(0, 51, 153));
@@ -294,11 +297,13 @@ public class Ticket2 extends javax.swing.JFrame {
             }
         });
 
+        jcall1.setDateFormatString("yyyy-MM-dd");
+
         javax.swing.GroupLayout jpanel4Layout = new javax.swing.GroupLayout(jpanel4);
         jpanel4.setLayout(jpanel4Layout);
         jpanel4Layout.setHorizontalGroup(
             jpanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jpanel4Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jpanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,9 +312,15 @@ public class Ticket2 extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addGroup(jpanel4Layout.createSequentialGroup()
                         .addComponent(departure, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                         .addGap(55, 55, 55)
+=======
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jcall1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58)
+>>>>>>> 6ecd440b5f1b81c3a98c0fc4db42e53b193cadd1
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addContainerGap(194, Short.MAX_VALUE))
         );
         jpanel4Layout.setVerticalGroup(
             jpanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,11 +332,18 @@ public class Ticket2 extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(17, 17, 17)
                         .addComponent(jLabel9)
+<<<<<<< HEAD
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(departure, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton10))
+=======
+                        .addGap(11, 11, 11)
+                        .addComponent(departure, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton10)
+                    .addComponent(jcall1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+>>>>>>> 6ecd440b5f1b81c3a98c0fc4db42e53b193cadd1
                 .addGap(0, 23, Short.MAX_VALUE))
         );
 
@@ -337,6 +355,11 @@ public class Ticket2 extends javax.swing.JFrame {
         jLabel8.setText("Location");
 
         location1.setBackground(new java.awt.Color(204, 204, 255));
+        location1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                location1ActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
         jLabel10.setText("Date of return");
@@ -349,6 +372,8 @@ public class Ticket2 extends javax.swing.JFrame {
                 donbActionPerformed(evt);
             }
         });
+
+        jcall2.setDateFormatString("yyyy-MM-dd");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -363,6 +388,11 @@ public class Ticket2 extends javax.swing.JFrame {
                         .addComponent(jLabel10)
                         .addComponent(location1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(returns, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+<<<<<<< HEAD
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jcall2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> 6ecd440b5f1b81c3a98c0fc4db42e53b193cadd1
                 .addGap(57, 57, 57)
                 .addComponent(donb, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -370,18 +400,25 @@ public class Ticket2 extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jcall2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(location1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< HEAD
                         .addComponent(returns, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(donb))
+=======
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(donb)
+                            .addComponent(returns, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
+>>>>>>> 6ecd440b5f1b81c3a98c0fc4db42e53b193cadd1
                 .addGap(0, 28, Short.MAX_VALUE))
         );
 
@@ -536,7 +573,15 @@ public class Ticket2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        
+       java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new dbf().setVisible(true);
+            }
+        });
+        
+        
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -548,11 +593,58 @@ public class Ticket2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
+        if (buttonOne.isSelected()){
+        int column5= 8;
+        int row5= gTable.getSelectedRow();
+        String value5= gTable.getModel().getValueAt(row5,column5).toString();
+        System.out.println(value5);}
+        
+        else if(jRadioButton4.isSelected()){
+            int column6 =8;
+            int column7=8;
+        
+            int row6=gTable.getSelectedRow();
+            int row7=rTable.getSelectedRow();
+            String value6=gTable.getModel().getValueAt(row6,column6).toString();
+            String value7=rTable.getModel().getValueAt(row7,column7).toString();
+            int value8= Integer.parseInt (value6)+Integer.parseInt(value7);
+            System.out.println(value8);
+            
+        }else if(jRadioButton3.isSelected()){
+            int column8= 8;
+        int row8= gTable.getSelectedRow();
+        String value9= gTable.getModel().getValueAt(row8,column8).toString();
+        System.out.println(value9);
+        
+        }
+
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
+        if (buttonOne.isSelected()){
+        int column= 7;
+        int row= gTable.getSelectedRow();
+        String value= gTable.getModel().getValueAt(row,column).toString();
+        System.out.println(value);}
+        
+        else if(jRadioButton4.isSelected()){
+            int column1 =7;
+            int column2=7;
+        
+            int row1=gTable.getSelectedRow();
+            int row2=rTable.getSelectedRow();
+            String value1=gTable.getModel().getValueAt(row1,column1).toString();
+            String value2=rTable.getModel().getValueAt(row2,column2).toString();
+            int value3= Integer.parseInt (value1)+Integer.parseInt(value2);
+            System.out.println(value3);
+            
+        }else if(jRadioButton3.isSelected() ){
+            int column3= 7;
+        int row3= gTable.getSelectedRow();
+        String value4= gTable.getModel().getValueAt(row3,column3).toString();
+        System.out.println(value4);
+        
+        }
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void locationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_locationActionPerformed
@@ -855,6 +947,7 @@ public class Ticket2 extends javax.swing.JFrame {
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
         // TODO add your handling code here:
         returns.setEnabled(false);
+        
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void departureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departureActionPerformed
@@ -886,9 +979,13 @@ public class Ticket2 extends javax.swing.JFrame {
 
     private void donbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donbActionPerformed
         // TODO add your handling code here:
-        String selectdat=((JTextField)jcall2.getDateEditor().getUiComponent()).getText();
+        String selectdat=((JTextField)jcall1.getDateEditor().getUiComponent()).getText();
         returns.setText(selectdat);
     }//GEN-LAST:event_donbActionPerformed
+
+    private void location1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_location1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_location1ActionPerformed
 
     /**
      * @param args the command line arguments
