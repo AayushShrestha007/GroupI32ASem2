@@ -118,6 +118,11 @@ public class Ticket2 extends javax.swing.JFrame {
         jButton8.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Book");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -917,6 +922,26 @@ public class Ticket2 extends javax.swing.JFrame {
     private void location1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_location1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_location1ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        BookingConf booking= new BookingConf();
+         
+         booking.dFrom.setText(location.getText());
+         booking.aFrom.setText(location1.getText());
+         booking.dTo.setText(location1.getText());
+         booking.aTo.setText(location.getText());
+         booking.dDar.setText(departure.getText());
+         booking.aAr.setText(returns.getText());
+         
+         
+         
+         
+        
+       
+        
+        booking.setVisible(true);
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
