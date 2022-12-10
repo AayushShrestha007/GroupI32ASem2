@@ -22,7 +22,7 @@ public class DbConnection {
             //MAKE SURE YOU KEEP THE mysql_connector.jar file in java/lib folder
             //ALSO SET THE CLASSPATH
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ars", "root", "mysql#madhu");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ars", "root", "root");
 //            pst = con.prepareStatement("select * from user where username=? and password=?");
 
         } catch (Exception e) {
