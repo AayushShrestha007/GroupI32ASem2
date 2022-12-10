@@ -2,6 +2,7 @@ package view;
 import java.time.LocalDate;
 import Model.Flights;
 import Controller.ticketsearchcontroller;
+import static java.lang.Integer.parseInt;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +22,8 @@ public class Ticket2 extends javax.swing.JFrame {
      */
     public Ticket2() {
         initComponents();
+        BookingConf booking= new BookingConf(); 
+       
  
 
     }
@@ -45,7 +48,6 @@ public class Ticket2 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         rTable = new javax.swing.JTable();
-        jButton8 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jRadioButton2 = new javax.swing.JRadioButton();
@@ -78,6 +80,7 @@ public class Ticket2 extends javax.swing.JFrame {
         buttonOne = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
+        jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,6 +99,11 @@ public class Ticket2 extends javax.swing.JFrame {
             }
         ));
         gTable.setFocusable(false);
+        gTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(gTable);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -114,11 +122,6 @@ public class Ticket2 extends javax.swing.JFrame {
         rTable.setFocusable(false);
         rTable.setRequestFocusEnabled(false);
         jScrollPane3.setViewportView(rTable);
-
-        jButton8.setBackground(new java.awt.Color(0, 51, 153));
-        jButton8.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Book");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -149,14 +152,6 @@ public class Ticket2 extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(192, 192, 192)
-                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jButton8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,7 +160,12 @@ public class Ticket2 extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(541, Short.MAX_VALUE)
@@ -175,7 +175,10 @@ public class Ticket2 extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioButton2)
+                    .addComponent(jRadioButton1))
                 .addGap(6, 6, 6)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -184,12 +187,7 @@ public class Ticket2 extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jButton8))
-                .addGap(35, 35, 35))
+                .addGap(76, 76, 76))
         );
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -303,24 +301,22 @@ public class Ticket2 extends javax.swing.JFrame {
         jpanel4.setLayout(jpanel4Layout);
         jpanel4Layout.setHorizontalGroup(
             jpanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
             .addGroup(jpanel4Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jpanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
                     .addGroup(jpanel4Layout.createSequentialGroup()
-                        .addComponent(departure, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-                        .addGap(55, 55, 55)
-=======
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jcall1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
->>>>>>> 6ecd440b5f1b81c3a98c0fc4db42e53b193cadd1
+                        .addGroup(jpanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addGroup(jpanel4Layout.createSequentialGroup()
+                                .addComponent(departure, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jcall1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(1, 1, 1)
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(197, Short.MAX_VALUE))
         );
         jpanel4Layout.setVerticalGroup(
             jpanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -332,18 +328,12 @@ public class Ticket2 extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel9)
-<<<<<<< HEAD
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(departure, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton10))
-=======
-                        .addGap(11, 11, 11)
                         .addComponent(departure, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton10)
                     .addComponent(jcall1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> 6ecd440b5f1b81c3a98c0fc4db42e53b193cadd1
                 .addGap(0, 23, Short.MAX_VALUE))
         );
 
@@ -379,46 +369,37 @@ public class Ticket2 extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel10)
-                        .addComponent(location1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(returns, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-<<<<<<< HEAD
-=======
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jcall2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
->>>>>>> 6ecd440b5f1b81c3a98c0fc4db42e53b193cadd1
-                .addGap(57, 57, 57)
+                    .addComponent(jLabel10)
+                    .addComponent(location1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(returns, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jcall2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28)
                 .addComponent(donb, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jcall2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(location1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-<<<<<<< HEAD
-                        .addComponent(returns, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(donb))
-=======
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(donb)
-                            .addComponent(returns, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
->>>>>>> 6ecd440b5f1b81c3a98c0fc4db42e53b193cadd1
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(location1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(returns, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(donb, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jcall2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 28, Short.MAX_VALUE))
         );
 
@@ -460,6 +441,16 @@ public class Ticket2 extends javax.swing.JFrame {
             }
         });
 
+        jButton8.setBackground(new java.awt.Color(0, 51, 153));
+        jButton8.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.setText("Book");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
@@ -489,7 +480,9 @@ public class Ticket2 extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(438, 438, 438)
+                .addGap(224, 224, 224)
+                .addComponent(jButton8)
+                .addGap(142, 142, 142)
                 .addComponent(jButton9)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -517,7 +510,9 @@ public class Ticket2 extends javax.swing.JFrame {
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton9)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton9)
+                    .addComponent(jButton8))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(31, Short.MAX_VALUE))
@@ -979,13 +974,225 @@ public class Ticket2 extends javax.swing.JFrame {
 
     private void donbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donbActionPerformed
         // TODO add your handling code here:
-        String selectdat=((JTextField)jcall1.getDateEditor().getUiComponent()).getText();
+        String selectdat=((JTextField)jcall2.getDateEditor().getUiComponent()).getText();
         returns.setText(selectdat);
     }//GEN-LAST:event_donbActionPerformed
 
     private void location1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_location1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_location1ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        BookingConf booking= new BookingConf();
+         
+        if(buttonOne.isSelected() || jRadioButton3.isSelected()){
+                  
+        int index=gTable.getSelectedRow();
+        TableModel model=gTable.getModel();
+        
+        
+        String fromd =model.getValueAt(index,1).toString();
+        String tod =model.getValueAt(index,2).toString();
+        String departd =model.getValueAt(index,5).toString();
+        
+        
+        String durationd =model.getValueAt(index,6).toString();
+        String cabinLimitd =model.getValueAt(index,9).toString();
+        String checkinLimitd =model.getValueAt(index,10).toString();
+        
+        booking.setVisible(true);
+        booking.pack();
+        booking.setLocationRelativeTo(null);
+        booking.dFrom.setText(fromd);
+        booking.dTo.setText(tod);
+        booking.dDar.setText(departd);
+        
+        booking.dDura.setText(durationd);
+        booking.dCabLim.setText(cabinLimitd);
+        booking.dChecklim.setText(checkinLimitd);
+        if(jRadioButton1.isSelected()){
+            String ePrice1=model.getValueAt(index,8).toString();
+            booking.dPrice.setText(ePrice1);
+            booking.pTextField.setText(ePrice1);
+        }
+        else if(jRadioButton2.isSelected()){
+            String ePrice1=model.getValueAt(index,7).toString();
+            booking.dPrice.setText(ePrice1);
+            booking.pTextField.setText(ePrice1);
+        }
+        
+        }
+        
+        if(jRadioButton4.isSelected()){
+        int index1=rTable.getSelectedRow();
+        TableModel mdl=rTable.getModel();
+        
+        int index=gTable.getSelectedRow();
+        TableModel model=gTable.getModel();
+        
+        
+        String fromd =model.getValueAt(index,1).toString();
+        String tod =model.getValueAt(index,2).toString();
+        String departd =model.getValueAt(index,5).toString();
+        
+        
+        String durationd =model.getValueAt(index,6).toString();
+        String cabinLimitd =model.getValueAt(index,9).toString();
+        String checkinLimitd =model.getValueAt(index,10).toString();
+        
+        booking.setVisible(true);
+        booking.pack();
+        booking.setLocationRelativeTo(null);
+        booking.dFrom.setText(fromd);
+        booking.dTo.setText(tod);
+        booking.dDar.setText(departd);
+        
+        booking.dDura.setText(durationd);
+        booking.dCabLim.setText(cabinLimitd);
+        booking.dChecklim.setText(checkinLimitd);
+        
+        
+        String durationa=mdl.getValueAt(index1,6).toString();
+        String toa=mdl.getValueAt(index1,2).toString();
+        String departura=mdl.getValueAt(index1,5).toString();
+        String froma=mdl.getValueAt(index1,1).toString();
+        String cabinlimita=mdl.getValueAt(index1,9).toString();
+        String checkinlimita=mdl.getValueAt(index1,10).toString();
+        
+        
+        
+        
+      
+        booking.aDura.setText(durationa);
+        booking.aTo.setText(toa);
+        booking.aAr.setText(departura);
+        booking.aFrom.setText(froma);
+        booking.aCablim.setText(cabinlimita);
+        booking.aChecklim.setText(checkinlimita);
+        
+        if(jRadioButton1.isSelected()){
+            String ePrice1=model.getValueAt(index,8).toString();
+            String ePrice2=mdl.getValueAt(index1,8).toString();
+            booking.dPrice.setText(ePrice1);
+            booking.aPrice.setText(ePrice2);
+            int intEPrice1= parseInt(ePrice1);
+            int intEPrice2=parseInt(ePrice2);
+            int totalPrice= intEPrice1+intEPrice2;
+            String stotalPrice= String.valueOf(totalPrice);
+            booking.pTextField.setText(stotalPrice);
+        }
+        else if(jRadioButton2.isSelected()){
+            String ePrice1=model.getValueAt(index,7).toString();
+            String ePrice2=mdl.getValueAt(index1,7).toString();
+            booking.dPrice.setText(ePrice1);
+            booking.aPrice.setText(ePrice2);
+            int intEPrice1= parseInt(ePrice1);
+            int intEPrice2=parseInt(ePrice2);
+            int totalPrice= intEPrice1+intEPrice2;
+            String stotalPrice= String.valueOf(totalPrice);
+            booking.pTextField.setText(stotalPrice);
+        }
+        }
+     
+        
+        
+        
+        
+        
+        //for price and flight insertion
+        
+//        for insertion of price business flight
+//        if (buttonOne.isSelected()){
+//        int column= 7;
+//        int row= gTable.getSelectedRow();
+//        String departprice= gTable.getModel().getValueAt(row,column).toString();
+//        booking.dPrice.setText(departprice);}
+//        
+//                else if(jRadioButton4.isSelected()){
+//            int column1 =7;
+//            int column2=7;
+//        
+//            int row1=gTable.getSelectedRow();
+//            int row2=rTable.getSelectedRow();
+//            String value1=gTable.getModel().getValueAt(row1,column1).toString();
+//            String value2=rTable.getModel().getValueAt(row2,column2).toString();
+////            int value3= Integer.parseInt (value1)+Integer.parseInt(value2);
+//        booking.dPrice.setText(value1);
+//        booking.aPrice.setText(value2);
+//            
+//            
+//        }else if(jRadioButton3.isSelected() ){
+//            int column3= 7;
+//        int row3= gTable.getSelectedRow();
+//        String value4= gTable.getModel().getValueAt(row3,column3).toString();
+////        System.out.println(value4);
+//        booking.dPrice.setText(value4);
+//        
+//        }
+//
+//
+//
+//        
+//        
+//         
+//         
+//         
+//         
+//        
+       
+        
+        booking.setVisible(true);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void gTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gTableMouseClicked
+        // TODO add your handling code here:
+//        BookingConf booking= new BookingConf(); 
+//        int index=gTable.getSelectedRow();
+//        TableModel model=gTable.getModel();
+//        
+//        String duration =model.getValueAt(index,0).toString();
+//        String cabinLimit =model.getValueAt(index,1).toString();
+//        String checkinLimit =model.getValueAt(index,2).toString();
+//        
+//        booking.setVisible(true);
+//        booking.pack();
+//        booking.setLocationRelativeTo(null);
+//        booking.dDura.setText(duration);
+//        booking.dCabLim.setText(cabinLimit);
+//        booking.dChecklim.setText(checkinLimit);
+        
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//        String duration =model.getValueAt(index,0).toString();
+//        String duration =model.getValueAt(index,0).toString();
+       
+        
+        
+
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_gTableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1059,6 +1266,8 @@ public class Ticket2 extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private com.toedter.calendar.JDateChooser jcall1;
+    private com.toedter.calendar.JDateChooser jcall2;
     private javax.swing.JPanel jpanel4;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTextField location;
