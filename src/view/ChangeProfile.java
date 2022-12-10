@@ -109,6 +109,11 @@ public boolean testUserdetail(){
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 14, 90, 99));
 
         tf_E_Pass.setText("Enter Existing Password");
+        tf_E_Pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_E_PassActionPerformed(evt);
+            }
+        });
         jPanel1.add(tf_E_Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(757, 244, 240, 38));
 
         tf_N_Email.setText("Enter New Email");
@@ -163,6 +168,11 @@ public boolean testUserdetail(){
         });
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8-home-page-64.png"))); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -200,52 +210,6 @@ public boolean testUserdetail(){
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
-        String E_user = tf_E_User.getText();
-        String E_email = tf_E_Email.getText();
-        String E_pass = tf_E_Pass.getText();
-        String N_user = tf_N_username.getText();
-        String N_email = tf_N_Email.getText();
-        String N_pass = tf_N_pass.getText();
-
-//
-        if(evt.getSource()==btnsave)
-            {
-              if(E_user.equals("") || E_email.equals("") || E_pass.equals("") || N_user.equals("") || N_email.equals("") || N_pass.equals("") ){
-            JOptionPane.showMessageDialog(null, "Please fill all the details");
-        }else {
-                if(testUserdetail()==false){
-                
-                    System.out.println("Invalid Existing User Data!!");
-                
-                }else{
-                    try{
-                    
-                    String query ="update user set username='"+N_user+"', email='"+N_email+"', password='"+N_pass+"' where email='"+E_email+"'";
-                    Connection conn=DbConnection.connectdb();
-                    PreparedStatement pst=conn.prepareStatement(query);
-                    pst.execute();
-                    
-                        System.out.println("User Details Updated Successfully");
-                        JOptionPane.showMessageDialog(null, "User Details Updated Successfully");
-                    
-                    
-                    
-                    
-                    
-                    }catch(SQLException ex){
-                        System.out.println(ex);
-                    }
-                }
-                
-                }
-}
-    }//GEN-LAST:event_btnsaveActionPerformed
-
-    private void tf_N_EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_N_EmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_N_EmailActionPerformed
-
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -261,6 +225,62 @@ public boolean testUserdetail(){
     private void tf_E_EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_E_EmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_E_EmailActionPerformed
+
+    private void tf_N_EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_N_EmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_N_EmailActionPerformed
+
+    private void tf_E_PassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_E_PassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_E_PassActionPerformed
+
+    private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
+        String E_user = tf_E_User.getText();
+        String E_email = tf_E_Email.getText();
+        String E_pass = tf_E_Pass.getText();
+        String N_user = tf_N_username.getText();
+        String N_email = tf_N_Email.getText();
+        String N_pass = tf_N_pass.getText();
+
+        //
+        if(evt.getSource()==btnsave)
+        {
+            if(E_user.equals("") || E_email.equals("") || E_pass.equals("") || N_user.equals("") || N_email.equals("") || N_pass.equals("") ){
+                JOptionPane.showMessageDialog(null, "Please fill all the details");
+            }else {
+                if(testUserdetail()==false){
+
+                    System.out.println("Invalid Existing User Data!!");
+
+                }else{
+                    try{
+
+                        String query ="update user set username='"+N_user+"', email='"+N_email+"', password='"+N_pass+"' where email='"+E_email+"'";
+                        Connection conn=DbConnection.connectdb();
+                        PreparedStatement pst=conn.prepareStatement(query);
+                        pst.execute();
+
+                        System.out.println("User Details Updated Successfully");
+                        JOptionPane.showMessageDialog(null, "User Details Updated Successfully");
+
+                    }catch(SQLException ex){
+                        System.out.println(ex);
+                    }
+                }
+
+            }
+            
+            
+        }
+    }//GEN-LAST:event_btnsaveActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new dbf().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

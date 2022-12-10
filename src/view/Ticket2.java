@@ -66,7 +66,6 @@ public class Ticket2 extends javax.swing.JFrame {
         location = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         departure = new javax.swing.JTextField();
-        jcall1 = new com.toedter.calendar.JDateChooser();
         jButton10 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -74,7 +73,6 @@ public class Ticket2 extends javax.swing.JFrame {
         location1 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         returns = new javax.swing.JTextField();
-        jcall2 = new com.toedter.calendar.JDateChooser();
         donb = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         buttonOne = new javax.swing.JRadioButton();
@@ -97,7 +95,7 @@ public class Ticket2 extends javax.swing.JFrame {
                 "Airline Name", "Location 1", "Location 2", "Departure Time", "Arrival Time", "Departure Date", "Duration", "Business Price", "Economy Price", "Cabin Capacity", "Checkin Capacity", "Refundable"
             }
         ));
-        gTable.setEnabled(false);
+        gTable.setFocusable(false);
         gTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 gTableMouseClicked(evt);
@@ -118,7 +116,8 @@ public class Ticket2 extends javax.swing.JFrame {
                 "Airline Name", "Location 2", "Location 1", "Departure Time", "Arrival Time", "Departure Date", "Duration", "Business Price", "Economy Price", "Cabin Capacity", "Checkin Capacity", "Refundable"
             }
         ));
-        rTable.setEnabled(false);
+        rTable.setFocusable(false);
+        rTable.setRequestFocusEnabled(false);
         jScrollPane3.setViewportView(rTable);
 
         jButton8.setBackground(new java.awt.Color(0, 51, 153));
@@ -301,13 +300,6 @@ public class Ticket2 extends javax.swing.JFrame {
             }
         });
 
-        jcall1.setDateFormatString("yyyy-MM-dd");
-        jcall1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jcall1MouseClicked(evt);
-            }
-        });
-
         jButton10.setText("Done");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -328,9 +320,7 @@ public class Ticket2 extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addGroup(jpanel4Layout.createSequentialGroup()
                         .addComponent(departure, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jcall1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(55, 55, 55)
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(197, Short.MAX_VALUE))
         );
@@ -347,9 +337,7 @@ public class Ticket2 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jpanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jcall1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(departure, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)))
+                        .addComponent(departure, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton10))
                 .addGap(0, 23, Short.MAX_VALUE))
         );
@@ -373,8 +361,6 @@ public class Ticket2 extends javax.swing.JFrame {
 
         returns.setBackground(new java.awt.Color(204, 204, 255));
 
-        jcall2.setDateFormatString("yyyy-MM-dd");
-
         donb.setText("Done");
         donb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -395,9 +381,7 @@ public class Ticket2 extends javax.swing.JFrame {
                         .addComponent(jLabel10)
                         .addComponent(location1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(returns, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jcall2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(57, 57, 57)
                 .addComponent(donb, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -414,9 +398,7 @@ public class Ticket2 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jcall2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(returns, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)))
+                        .addComponent(returns, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(donb))
                 .addGap(0, 28, Short.MAX_VALUE))
         );
@@ -572,7 +554,15 @@ public class Ticket2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        
+       java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new dbf().setVisible(true);
+            }
+        });
+        
+        
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -584,11 +574,58 @@ public class Ticket2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
+        if (buttonOne.isSelected()){
+        int column5= 8;
+        int row5= gTable.getSelectedRow();
+        String value5= gTable.getModel().getValueAt(row5,column5).toString();
+        System.out.println(value5);}
+        
+        else if(jRadioButton4.isSelected()){
+            int column6 =8;
+            int column7=8;
+        
+            int row6=gTable.getSelectedRow();
+            int row7=rTable.getSelectedRow();
+            String value6=gTable.getModel().getValueAt(row6,column6).toString();
+            String value7=rTable.getModel().getValueAt(row7,column7).toString();
+            int value8= Integer.parseInt (value6)+Integer.parseInt(value7);
+            System.out.println(value8);
+            
+        }else if(jRadioButton3.isSelected()){
+            int column8= 8;
+        int row8= gTable.getSelectedRow();
+        String value9= gTable.getModel().getValueAt(row8,column8).toString();
+        System.out.println(value9);
+        
+        }
+
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
+        if (buttonOne.isSelected()){
+        int column= 7;
+        int row= gTable.getSelectedRow();
+        String value= gTable.getModel().getValueAt(row,column).toString();
+        System.out.println(value);}
+        
+        else if(jRadioButton4.isSelected()){
+            int column1 =7;
+            int column2=7;
+        
+            int row1=gTable.getSelectedRow();
+            int row2=rTable.getSelectedRow();
+            String value1=gTable.getModel().getValueAt(row1,column1).toString();
+            String value2=rTable.getModel().getValueAt(row2,column2).toString();
+            int value3= Integer.parseInt (value1)+Integer.parseInt(value2);
+            System.out.println(value3);
+            
+        }else if(jRadioButton3.isSelected() ){
+            int column3= 7;
+        int row3= gTable.getSelectedRow();
+        String value4= gTable.getModel().getValueAt(row3,column3).toString();
+        System.out.println(value4);
+        
+        }
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void locationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_locationActionPerformed
@@ -891,6 +928,7 @@ public class Ticket2 extends javax.swing.JFrame {
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
         // TODO add your handling code here:
         returns.setEnabled(false);
+        
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void departureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departureActionPerformed
@@ -1071,8 +1109,6 @@ public class Ticket2 extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private com.toedter.calendar.JDateChooser jcall1;
-    private com.toedter.calendar.JDateChooser jcall2;
     private javax.swing.JPanel jpanel4;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTextField location;
