@@ -1000,6 +1000,7 @@ public class Ticket2 extends javax.swing.JFrame {
         String durationd =model.getValueAt(index,6).toString();
         String cabinLimitd =model.getValueAt(index,9).toString();
         String checkinLimitd =model.getValueAt(index,10).toString();
+        String airName =model.getValueAt(index,0).toString();
         
         booking.setVisible(true);
         booking.pack();
@@ -1007,6 +1008,7 @@ public class Ticket2 extends javax.swing.JFrame {
         booking.dFrom.setText(fromd);
         booking.dTo.setText(tod);
         booking.dDar.setText(departd);
+        booking.dAName.setText(airName);
         
         booking.dDura.setText(durationd);
         booking.dCabLim.setText(cabinLimitd);
@@ -1040,6 +1042,7 @@ public class Ticket2 extends javax.swing.JFrame {
         String durationd =model.getValueAt(index,6).toString();
         String cabinLimitd =model.getValueAt(index,9).toString();
         String checkinLimitd =model.getValueAt(index,10).toString();
+        String airName =model.getValueAt(index,0).toString();
         
         booking.setVisible(true);
         booking.pack();
@@ -1051,6 +1054,7 @@ public class Ticket2 extends javax.swing.JFrame {
         booking.dDura.setText(durationd);
         booking.dCabLim.setText(cabinLimitd);
         booking.dChecklim.setText(checkinLimitd);
+        booking.dAName.setText(airName);
         
         
         String durationa=mdl.getValueAt(index1,6).toString();
@@ -1059,6 +1063,7 @@ public class Ticket2 extends javax.swing.JFrame {
         String froma=mdl.getValueAt(index1,1).toString();
         String cabinlimita=mdl.getValueAt(index1,9).toString();
         String checkinlimita=mdl.getValueAt(index1,10).toString();
+        String airNamea =mdl.getValueAt(index1,0).toString();
         
         
         
@@ -1070,6 +1075,7 @@ public class Ticket2 extends javax.swing.JFrame {
         booking.aFrom.setText(froma);
         booking.aCablim.setText(cabinlimita);
         booking.aChecklim.setText(checkinlimita);
+        booking.aAName.setText(airNamea);
         
         if(jRadioButton1.isSelected()){
             String ePrice1=model.getValueAt(index,8).toString();
