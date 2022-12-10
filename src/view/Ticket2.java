@@ -2,6 +2,7 @@ package view;
 import java.time.LocalDate;
 import Model.Flights;
 import Controller.ticketsearchcontroller;
+import static java.lang.Integer.parseInt;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -985,13 +986,48 @@ public class Ticket2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         BookingConf booking= new BookingConf();
          
-//         booking.dFrom.setText(location.getText());
-//         booking.aFrom.setText(location1.getText());
-//         booking.dTo.setText(location1.getText());
-//         booking.aTo.setText(location.getText());
-//         booking.dDar.setText(departure.getText());
-//         booking.aAr.setText(returns.getText());
+        if(buttonOne.isSelected() || jRadioButton3.isSelected()){
                   
+        int index=gTable.getSelectedRow();
+        TableModel model=gTable.getModel();
+        
+        
+        String fromd =model.getValueAt(index,1).toString();
+        String tod =model.getValueAt(index,2).toString();
+        String departd =model.getValueAt(index,5).toString();
+        
+        
+        String durationd =model.getValueAt(index,6).toString();
+        String cabinLimitd =model.getValueAt(index,9).toString();
+        String checkinLimitd =model.getValueAt(index,10).toString();
+        
+        booking.setVisible(true);
+        booking.pack();
+        booking.setLocationRelativeTo(null);
+        booking.dFrom.setText(fromd);
+        booking.dTo.setText(tod);
+        booking.dDar.setText(departd);
+        
+        booking.dDura.setText(durationd);
+        booking.dCabLim.setText(cabinLimitd);
+        booking.dChecklim.setText(checkinLimitd);
+        if(jRadioButton1.isSelected()){
+            String ePrice1=model.getValueAt(index,8).toString();
+            booking.dPrice.setText(ePrice1);
+            booking.pTextField.setText(ePrice1);
+        }
+        else if(jRadioButton2.isSelected()){
+            String ePrice1=model.getValueAt(index,7).toString();
+            booking.dPrice.setText(ePrice1);
+            booking.pTextField.setText(ePrice1);
+        }
+        
+        }
+        
+        if(jRadioButton4.isSelected()){
+        int index1=rTable.getSelectedRow();
+        TableModel mdl=rTable.getModel();
+        
         int index=gTable.getSelectedRow();
         TableModel model=gTable.getModel();
         
@@ -1017,15 +1053,12 @@ public class Ticket2 extends javax.swing.JFrame {
         booking.dChecklim.setText(checkinLimitd);
         
         
-        int index1=rTable.getSelectedRow();
-        TableModel mdl=rTable.getModel();
-        
         String durationa=mdl.getValueAt(index1,6).toString();
-        String toa=mdl.getValueAt(index,2).toString();
-        String departura=mdl.getValueAt(index,5).toString();
-        String froma=mdl.getValueAt(index,1).toString();
-        String cabinlimita=mdl.getValueAt(index,9).toString();
-        String checkinlimita=mdl.getValueAt(index,10).toString();
+        String toa=mdl.getValueAt(index1,2).toString();
+        String departura=mdl.getValueAt(index1,5).toString();
+        String froma=mdl.getValueAt(index1,1).toString();
+        String cabinlimita=mdl.getValueAt(index1,9).toString();
+        String checkinlimita=mdl.getValueAt(index1,10).toString();
         
         
         
@@ -1038,7 +1071,30 @@ public class Ticket2 extends javax.swing.JFrame {
         booking.aCablim.setText(cabinlimita);
         booking.aChecklim.setText(checkinlimita);
         
-        
+        if(jRadioButton1.isSelected()){
+            String ePrice1=model.getValueAt(index,8).toString();
+            String ePrice2=mdl.getValueAt(index1,8).toString();
+            booking.dPrice.setText(ePrice1);
+            booking.aPrice.setText(ePrice2);
+            int intEPrice1= parseInt(ePrice1);
+            int intEPrice2=parseInt(ePrice2);
+            int totalPrice= intEPrice1+intEPrice2;
+            String stotalPrice= String.valueOf(totalPrice);
+            booking.pTextField.setText(stotalPrice);
+        }
+        else if(jRadioButton2.isSelected()){
+            String ePrice1=model.getValueAt(index,7).toString();
+            String ePrice2=mdl.getValueAt(index1,7).toString();
+            booking.dPrice.setText(ePrice1);
+            booking.aPrice.setText(ePrice2);
+            int intEPrice1= parseInt(ePrice1);
+            int intEPrice2=parseInt(ePrice2);
+            int totalPrice= intEPrice1+intEPrice2;
+            String stotalPrice= String.valueOf(totalPrice);
+            booking.pTextField.setText(stotalPrice);
+        }
+        }
+     
         
         
         

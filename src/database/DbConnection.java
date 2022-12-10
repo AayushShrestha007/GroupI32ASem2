@@ -22,7 +22,7 @@ public class DbConnection {
             //MAKE SURE YOU KEEP THE mysql_connector.jar file in java/lib folder
             //ALSO SET THE CLASSPATH
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ars", "root", "root");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ars", "root", "Nepal2014!");
 //            pst = con.prepareStatement("select * from user where username=? and password=?");
 
         } catch (Exception e) {
@@ -32,7 +32,7 @@ public class DbConnection {
     public static Connection connectdb(){
         try{Class.forName("com.mysql.cj.jdbc.Driver");
            
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ars", "root", "mysql#madhu");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ars", "root", "Nepal2014!");
             
             if(con!=null){
                 System.out.println("Successfully connected to database");
