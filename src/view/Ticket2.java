@@ -21,6 +21,8 @@ public class Ticket2 extends javax.swing.JFrame {
      */
     public Ticket2() {
         initComponents();
+        BookingConf booking= new BookingConf(); 
+       
  
 
     }
@@ -96,6 +98,11 @@ public class Ticket2 extends javax.swing.JFrame {
             }
         ));
         gTable.setEnabled(false);
+        gTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(gTable);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -942,6 +949,55 @@ public class Ticket2 extends javax.swing.JFrame {
         
         booking.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void gTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gTableMouseClicked
+        // TODO add your handling code here:
+        BookingConf booking= new BookingConf(); 
+        int index=gTable.getSelectedRow();
+        TableModel model=gTable.getModel();
+        
+        String duration =model.getValueAt(index,0).toString();
+        String cabinLimit =model.getValueAt(index,1).toString();
+        String checkinLimit =model.getValueAt(index,2).toString();
+        
+        booking.setVisible(true);
+        booking.pack();
+        booking.setLocationRelativeTo(null);
+        booking.dDura.setText(duration);
+        booking.dCabLim.setText(cabinLimit);
+        booking.dChecklim.setText(checkinLimit);
+        
+        
+//        booking.SetDefaultCloseOperation(JFrame.DISPOSE_ON
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//        String duration =model.getValueAt(index,0).toString();
+//        String duration =model.getValueAt(index,0).toString();
+       
+        
+        
+
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_gTableMouseClicked
 
     /**
      * @param args the command line arguments
