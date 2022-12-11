@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+import Contraints.Constant;
+import view.confirmationPage;
 import Controller.ticketcontroller;
 import javax.swing.JTextField;
 import Model.ticket;
@@ -80,8 +82,15 @@ public class BookingConf extends javax.swing.JFrame {
         arfl1 = new javax.swing.JLabel();
         aAName = new javax.swing.JLabel();
         dAName = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        lblLogedInUsername = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         kGradientPanel1.setkEndColor(new java.awt.Color(51, 0, 102));
         kGradientPanel1.setkStartColor(new java.awt.Color(51, 102, 255));
@@ -304,6 +313,11 @@ public class BookingConf extends javax.swing.JFrame {
         dAName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         dAName.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("LoggedIn As:");
+
+        lblLogedInUsername.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
@@ -317,6 +331,7 @@ public class BookingConf extends javax.swing.JFrame {
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGap(95, 95, 95)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(kGradientPanel1Layout.createSequentialGroup()
@@ -354,12 +369,16 @@ public class BookingConf extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(dAName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(198, 198, 198)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2))
-                .addGap(91, 91, 91)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel15)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86)
+                        .addComponent(jLabel18)
+                        .addGap(37, 37, 37)
+                        .addComponent(lblLogedInUsername))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
@@ -399,20 +418,25 @@ public class BookingConf extends javax.swing.JFrame {
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(aPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(21, 21, 21)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel2))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel2)))
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(lblLogedInUsername))))
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
@@ -451,13 +475,14 @@ public class BookingConf extends javax.swing.JFrame {
                             .addComponent(dAName, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
+                                .addGap(24, 24, 24)
                                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel10)
                                     .addComponent(aFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(27, 27, 27)
+                                .addGap(18, 18, 18)
                                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel11)
                                     .addComponent(aTo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -498,9 +523,7 @@ public class BookingConf extends javax.swing.JFrame {
                                         .addComponent(bookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(31, 31, 31)
                                         .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(130, Short.MAX_VALUE))))
         );
 
@@ -529,24 +552,66 @@ public class BookingConf extends javax.swing.JFrame {
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bookButtonActionPerformed
 
-    private void pTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pTextFieldActionPerformed
-        String departure1 = dFrom.getText();
-        String destination1 = dTo.getText();
-        String dDate= dDar.getText();
-        String AName= dAName.getText();
-        ticket t1= new ticket(AName,dDate,departure1,destination1);
-        ticketcontroller tc1= new ticketcontroller();
-        try {
-            ResultSet flightidresult= tc1.retrieveflightid(t1);
-            
+       String departure1 = dFrom.getText();
+       String destination1 = dTo.getText();
+       String dDate= dDar.getText();
+       String AName= dAName.getText();
+       
+       String departure2 = aFrom.getText();
+       String destination2 = aTo.getText();
+       String dDate2= aAr.getText();
+       String AName2= aAName.getText();
+      
+       String Uname = lblLogedInUsername.getText();
+      
+       
+       if(departure2.isEmpty()){
+       ticket t1= new ticket(AName,dDate,departure1,destination1,Uname);
+       ticketcontroller tc1= new ticketcontroller();
+       
+       
+       try {
+           tc1.insertTicket(t1);
+           
         } catch (SQLException ex) {
             Logger.getLogger(BookingConf.class.getName()).log(Level.SEVERE, null, ex);
         }
+       }
+       
+       else if(!departure2.isEmpty()){
+       ticket t1= new ticket(AName,dDate,departure1,destination1,Uname);
+       ticket t2= new ticket(AName2,dDate2,departure2,destination2,Uname);
+       ticketcontroller tc2= new ticketcontroller();
+       ticketcontroller tc3= new ticketcontroller();
+       
+       
+       try {
+           tc2.insertTicket(t1);
+           tc3.insertTicket(t2);
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(BookingConf.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       }
+       this.setVisible(false);
+       confirmationPage cp = new confirmationPage();
+       cp.setVisible(true);
+    }//GEN-LAST:event_bookButtonActionPerformed
+
+    private void pTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pTextFieldActionPerformed
+        
     }//GEN-LAST:event_pTextFieldActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        if(Constant.loggedInUser != null){
+        String getUserName = Constant.loggedInUser.getUsername();
+        lblLogedInUsername.setText(getUserName);
+      
+        
+    }//GEN-LAST:event_formWindowOpened
+    }
     /**
      * @param args the command line arguments
      */
@@ -591,7 +656,7 @@ public class BookingConf extends javax.swing.JFrame {
     public javax.swing.JLabel aFrom;
     public javax.swing.JLabel aPrice;
     public javax.swing.JLabel aTo;
-    private javax.swing.JLabel arfl1;
+    public javax.swing.JLabel arfl1;
     private javax.swing.JButton bookButton;
     public javax.swing.JLabel dAName;
     public javax.swing.JLabel dCabLim;
@@ -602,7 +667,7 @@ public class BookingConf extends javax.swing.JFrame {
     public javax.swing.JLabel dPrice;
     public javax.swing.JLabel dTo;
     private javax.swing.JButton editButton;
-    private javax.swing.JLabel flightA;
+    public javax.swing.JLabel flightA;
     private javax.swing.JLabel flightutu1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -617,6 +682,7 @@ public class BookingConf extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -630,6 +696,7 @@ public class BookingConf extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private keeptoo.KGradientPanel kGradientPanel1;
+    private javax.swing.JLabel lblLogedInUsername;
     public javax.swing.JTextField pTextField;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,12 +13,14 @@ public class ticket {
     String departureDate;
     String departure;
     String destination;
+    String uName;
     
-    public ticket(String airName, String departureDate,String departure,String destination){
+    public ticket(String airName, String departureDate,String departure,String destination,String uName){
         this.airName= airName;
         this.departureDate= departureDate;
         this.departure = departure;
         this.destination= destination;
+        this.uName= uName;
     }
     
     public void setAirName(String newAirName){
@@ -45,12 +47,20 @@ public class ticket {
         return this.departure;
     }
     
-        public void setDestination(String newDestination){
+    public void setDestination(String newDestination){
         this.destination= newDestination;
     }
     
     public String getDestination(){
         return this.destination;
+    }
+    
+    public void setUName(String newUName){
+        this.uName= uName;
+    }
+    
+    public String getUName(){
+        return this.uName;
     }
     
 }
