@@ -1,4 +1,5 @@
 use ars;
+
 create table flights(
 flight_number int auto_increment,
 primary key(flight_number),
@@ -20,7 +21,13 @@ drop table flights;
 select * from flights;
 insert into flights (departure,destination,duration,cabin_capacity,checkin_capacity,refundable,airline_name,departure_time,arrival_time,departure_date,
 economy_price,business_price,flight_type) values ("Qatar","Nepal","3 Hr","5 kg","15 kg","Yes","RA","9 AM","12 AM","2023-11-27",9000,12000,"Normal"),
-("Nepal","Qatar","3 Hr","5 kg","15 kg","No","Emirates","7 PM","10 PM","2023-12-01",9000,12000,"Normal")
+("Nepal","Qatar","3 Hr","5 kg","15 kg","No","Emirates","7 PM","10 PM","2023-12-01",9000,10000,"Normal"),
+("Qatar","Nepal","3 Hr","5 kg","15 kg","Yes","Buddha","9 AM","12 AM","2023-11-27",9000,15000,"Normal"),
+("Qatar","Nepal","3 Hr","5 kg","15 kg","Yes","Buddha","9 AM","12 AM","2023-11-27",9000,13000,"Normal"),
+("Nepal","Qatar","3 Hr","5 kg","15 kg","No","Emirates","7 PM","10 PM","2023-12-01",9000,20000,"Normal")
+("Nepal","Qatar","3 Hr","5 kg","15 kg","No","Emirates","7 PM","10 PM","2023-12-01",9000,17000,"Normal")
+
+
 
 
 ;

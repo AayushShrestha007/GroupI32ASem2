@@ -7,8 +7,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JTextField;
 import javax.swing.RowFilter;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -200,6 +203,11 @@ public class Ticket2 extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton2.setText("Sort highest to lowest");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton3.setText("Sort lowest to highest");
@@ -522,6 +530,25 @@ public class Ticket2 extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        TableRowSorter<TableModel> sorter2 = new TableRowSorter<TableModel>(gTable.getModel());
+        gTable.setRowSorter(sorter2);
+        ArrayList<RowSorter.SortKey> sortKeys2 = new ArrayList<RowSorter.SortKey>();
+ 
+        int columnIndexToSort2 = 8;
+        sortKeys2.add(new RowSorter.SortKey(columnIndexToSort2, SortOrder.ASCENDING));
+ 
+        sorter2.setSortKeys(sortKeys2);
+        sorter2.sort();
+        
+        TableRowSorter<TableModel> sorter3 = new TableRowSorter<TableModel>(rTable.getModel());
+        rTable.setRowSorter(sorter3);
+        ArrayList<RowSorter.SortKey> sortKeys3 = new ArrayList<RowSorter.SortKey>();
+ 
+        int columnIndexToSort3 = 8;
+        sortKeys3.add(new RowSorter.SortKey(columnIndexToSort3, SortOrder.ASCENDING));
+ 
+        sorter3.setSortKeys(sortKeys3);
+        sorter3.sort();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -946,6 +973,33 @@ public class Ticket2 extends javax.swing.JFrame {
         String selectdat=((JTextField)jcall2.getDateEditor().getUiComponent()).getText();
         returns.setText(selectdat);
     }//GEN-LAST:event_donbActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(gTable.getModel());
+        gTable.setRowSorter(sorter);
+        ArrayList<RowSorter.SortKey> sortKeys = new ArrayList<RowSorter.SortKey>();
+ 
+        int columnIndexToSort = 8;
+        sortKeys.add(new RowSorter.SortKey(columnIndexToSort, SortOrder.DESCENDING));
+ 
+        sorter.setSortKeys(sortKeys);
+        sorter.sort();
+        
+        TableRowSorter<TableModel> sorter1 = new TableRowSorter<TableModel>(rTable.getModel());
+        rTable.setRowSorter(sorter1);
+        ArrayList<RowSorter.SortKey> sortKeys1 = new ArrayList<RowSorter.SortKey>();
+ 
+        int columnIndexToSort1 = 8;
+        sortKeys1.add(new RowSorter.SortKey(columnIndexToSort1, SortOrder.DESCENDING));
+ 
+        sorter1.setSortKeys(sortKeys1);
+        sorter1.sort();
+        
+     
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
