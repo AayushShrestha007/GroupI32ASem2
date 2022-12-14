@@ -1,3 +1,4 @@
+package view;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -10,7 +11,7 @@
 public class dbf extends javax.swing.JFrame {
     Ticket2 t = new Ticket2();
     /**
-     * Creates new form dbf
+     * Creates new form 
      */
     public dbf() {
         initComponents();
@@ -152,6 +153,11 @@ public class dbf extends javax.swing.JFrame {
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8-home-page-64.png"))); // NOI18N
         jButton6.setContentAreaFilled(false);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8-available-updates-64.png"))); // NOI18N
         jButton7.setText("jButton7");
@@ -286,7 +292,9 @@ public class dbf extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+    
+        this.dispose();
+        new ChangeProfile().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -296,6 +304,14 @@ public class dbf extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+       java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new dbf().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
