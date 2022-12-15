@@ -4,9 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/dell/Desktop/GroupI32ASem2/src/database/DbConnection.java</file>
+            <file>file:/C:/Users/dell/Desktop/GroupI32ASem2/src/Model/ticket.java</file>
+            <file>file:/C:/Users/dell/Desktop/GroupI32ASem2/src/view/Ticket2.java</file>
+            <file>file:/C:/Users/dell/Desktop/GroupI32ASem2/src/Controller/ticketcontroller.java</file>
             <file>file:/C:/Users/dell/Desktop/GroupI32ASem2/src/view/BookingConf.java</file>
-            <file>file:/C:/Users/dell/Desktop/GroupI32ASem2/src/view/Customer_review.java</file>
-            <file>file:/C:/Users/dell/Desktop/GroupI32ASem2/src/view/LoginScreen.java</file>
+            <file>file:/C:/Users/dell/Desktop/GroupI32ASem2/src/database/ticket.sql</file>
         </group>
     </open-files>
 </project-private>
