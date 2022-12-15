@@ -314,7 +314,7 @@ public class BookingConf extends javax.swing.JFrame {
         dAName.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("LoggedIn As:");
+        jLabel18.setText("Logged In As:");
 
         lblLogedInUsername.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -370,7 +370,7 @@ public class BookingConf extends javax.swing.JFrame {
                                 .addComponent(dAName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(198, 198, 198)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel15)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
@@ -418,7 +418,7 @@ public class BookingConf extends javax.swing.JFrame {
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(aPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
