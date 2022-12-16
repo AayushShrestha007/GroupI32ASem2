@@ -16,31 +16,7 @@ import javax.swing.JOptionPane;
 public class ChangePassword extends javax.swing.JFrame {
     
     
-    
-public boolean testUserdetail(){
-        String E_user = tf_E_User.getText();
-        String E_email = tf_E_Email.getText();
-        String E_pass = tf_E_Pass.getText();
-        User u1= new User(E_user,E_email,E_pass);
-        logincontroller lc= new logincontroller();
-        ResultSet r = lc.testuser(u1);
-        boolean iscorrect=false;
-                    try {
-                        if(r.next()){
-                            iscorrect=true;
-                            System.out.println("Correct Existing datas");                           
-                        }
-                        else{
-                            iscorrect=false;
-                            JOptionPane.showMessageDialog(null," Invalid Existig Data");
-                        }
-                            } catch (SQLException ex) {
-                            
-                            System.out.println("SQL Error"+ex);
-                            }
 
-            return iscorrect;
-}
 
 
     public ChangePassword() {
@@ -56,9 +32,9 @@ public boolean testUserdetail(){
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         btnsave = new javax.swing.JButton();
-        tf_E_Pass = new javax.swing.JTextField();
-        tf_N_pass = new javax.swing.JTextField();
-        tf_E_User = new javax.swing.JTextField();
+        tf_Pass = new javax.swing.JTextField();
+        tf_Cpass = new javax.swing.JTextField();
+        tf_email = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
@@ -93,24 +69,24 @@ public boolean testUserdetail(){
         });
         jPanel1.add(btnsave, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 510, 110, 40));
 
-        tf_E_Pass.setText("New Password");
-        tf_E_Pass.addActionListener(new java.awt.event.ActionListener() {
+        tf_Pass.setText("New Password");
+        tf_Pass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_E_PassActionPerformed(evt);
+                tf_PassActionPerformed(evt);
             }
         });
-        jPanel1.add(tf_E_Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 240, 38));
+        jPanel1.add(tf_Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 240, 38));
 
-        tf_N_pass.setText("Confirm Password");
-        tf_N_pass.addActionListener(new java.awt.event.ActionListener() {
+        tf_Cpass.setText("Confirm Password");
+        tf_Cpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_N_passActionPerformed(evt);
+                tf_CpassActionPerformed(evt);
             }
         });
-        jPanel1.add(tf_N_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 240, 38));
+        jPanel1.add(tf_Cpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 240, 38));
 
-        tf_E_User.setText("Email Address");
-        jPanel1.add(tf_E_User, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 240, 38));
+        tf_email.setText("Email Address");
+        jPanel1.add(tf_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 240, 38));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,39 +101,33 @@ public boolean testUserdetail(){
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tf_E_PassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_E_PassActionPerformed
+    private void tf_PassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_PassActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tf_E_PassActionPerformed
+    }//GEN-LAST:event_tf_PassActionPerformed
 
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
-        String E_user = tf_E_User.getText();
-        String E_email = tf_E_Email.getText();
-        String E_pass = tf_E_Pass.getText();
-        String N_user = tf_N_username.getText();
-        String N_email = tf_N_Email.getText();
-        String N_pass = tf_N_pass.getText();
+        String email = tf_email.getText();
+        String pass = tf_Pass.getText();
+        String Cpass = tf_Cpass.getText();
 
         //
         if(evt.getSource()==btnsave)
         {
-            if(E_user.equals("") || E_email.equals("") || E_pass.equals("") || N_user.equals("") || N_email.equals("") || N_pass.equals("") ){
+            if(email.equals("") || pass.equals("") || Cpass.equals("") ){
                 JOptionPane.showMessageDialog(null, "Please fill all the details");
             }else {
-                if(testUserdetail()==false){
-
-                    System.out.println("Invalid Existing User Data!!");
-
-                }else{
+               
                     try{
 
-                        String query ="update user set username='"+N_user+"', email='"+N_email+"', password='"+N_pass+"' where email='"+E_email+"'";
+                        String query ="update user set password='"+pass+"' where email='"+email+"'";
                         Connection conn=DbConnection.connectdb();
                         PreparedStatement pst=conn.prepareStatement(query);
-                        pst.execute();
+                        int isupdated=pst.executeUpdate();
+                        if(isupdated>0){
 
-                        System.out.println("User Details Updated Successfully");
-                        JOptionPane.showMessageDialog(null, "User Details Updated Successfully");
-
+                        System.out.println("Password Updated Successfully");
+                        JOptionPane.showMessageDialog(null, "Password Updated Successfully");
+                        }else{System.out.println("Error updating password");}
                     }catch(SQLException ex){
                         System.out.println(ex);
                     }
@@ -166,12 +136,12 @@ public boolean testUserdetail(){
             }
             
             
-        }
+        
     }//GEN-LAST:event_btnsaveActionPerformed
 
-    private void tf_N_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_N_passActionPerformed
+    private void tf_CpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_CpassActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tf_N_passActionPerformed
+    }//GEN-LAST:event_tf_CpassActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,8 +187,8 @@ public boolean testUserdetail(){
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private keeptoo.KGradientPanel kGradientPanel1;
-    private javax.swing.JTextField tf_E_Pass;
-    private javax.swing.JTextField tf_E_User;
-    private javax.swing.JTextField tf_N_pass;
+    private javax.swing.JTextField tf_Cpass;
+    private javax.swing.JTextField tf_Pass;
+    private javax.swing.JTextField tf_email;
     // End of variables declaration//GEN-END:variables
 }
