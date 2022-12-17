@@ -204,7 +204,9 @@ public class confirmationPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        Reviewbookingscreen r= new Reviewbookingscreen();
+        r.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_button1ActionPerformed
 
     /**
