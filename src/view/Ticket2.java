@@ -102,7 +102,7 @@ public class Ticket2 extends javax.swing.JFrame {
         gTable.setFocusable(false);
         gTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                gTableMouseClicked(evt);
+                // gTableMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(gTable);

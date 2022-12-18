@@ -25,7 +25,7 @@ public class Reviewbookingscreen extends javax.swing.JFrame {
     
         try{
         
-            String query = "select departure,destination ,departure_date from ticket";
+            String query = "select departure,destination ,departure_date from flights";
             Connection conn = DbConnection.connectdb();
             PreparedStatement pst = conn.prepareStatement(query);
             ResultSet rs = pst.executeQuery();
@@ -35,7 +35,7 @@ public class Reviewbookingscreen extends javax.swing.JFrame {
         }catch(Exception e){
         
         
-            System.out.println("Error Occured");
+            System.out.println(e);
             
             
         }
@@ -248,13 +248,31 @@ public class Reviewbookingscreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+      try{
         
-        if(Constant.loggedInUser != null){
-        String getUserName = Constant.loggedInUser.getUsername();
-        loggedInUser.setText(getUserName);
+            String query = "select user_id from ticket";
+            Connection conn = DbConnection.connectdb();
+            PreparedStatement pst1 = conn.prepareStatement(query);
+            ResultSet rs1 = pst1.executeQuery();
+            viewtable.setModel(DbUtils.resultSetToTableModel(rs1));
+            
+            
+            
+            
+        }catch(Exception e){
+        
+        
+            System.out.println(e);
+            
+            
+        }  
+      if(Constant.loggedInUser != null){
+            String getUserName = Constant.loggedInUser.getUsername();
+            loggedInUser.setText(getUserName);
     }        
         display_details();
 
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
