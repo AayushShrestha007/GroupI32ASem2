@@ -4,7 +4,9 @@
  */
 package view;
 
+import Controller.deletecontroller;
 import Controller.logincontroller;
+import Controller.signupcontroller;
 import Database.DbConnection;
 
 import Model.User;
@@ -14,6 +16,7 @@ import javax.swing.JOptionPane;
 
 
 public class ChangeProfile extends javax.swing.JFrame {
+    LoginScreen l1= new LoginScreen();
     
     
     
@@ -68,6 +71,7 @@ public boolean testUserdetail(){
         jButton9 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -202,6 +206,17 @@ public boolean testUserdetail(){
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(898, 0, 310, -1));
 
+        delete.setBackground(new java.awt.Color(255, 51, 51));
+        delete.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        delete.setForeground(new java.awt.Color(255, 255, 255));
+        delete.setText("Delete User");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 543, 150, 40));
+
         kGradientPanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, -1, 1200, 700));
 
         getContentPane().add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -3, 1210, 700));
@@ -282,6 +297,30 @@ public boolean testUserdetail(){
         });
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+            String email=tf_E_Email.getText();
+            String user=tf_E_User.getText();
+            String pass=tf_E_Pass.getText();
+             if(evt.getSource()==delete)
+        {
+            if(email.equals("") || user.equals("") || pass.equals("")  ){
+                JOptionPane.showMessageDialog(null, "Please fill all the details");
+            
+        }
+            else{
+          
+                User u2= new User(user,email,pass);
+                deletecontroller d1= new deletecontroller();
+                d1.deleteUser(u2);
+                JOptionPane.showMessageDialog(null,"Delete successful");
+                this.setVisible(false);
+                l1.setVisible(true);
+
+            }
+        }
+    }//GEN-LAST:event_deleteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -319,6 +358,7 @@ public boolean testUserdetail(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnsave;
+    private javax.swing.JButton delete;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
