@@ -5,7 +5,7 @@
 package Controller;
 import java.time.LocalDate;
 import Database.DbConnection;
-import Model.User;
+
 import Model.ticket;
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -547,8 +547,8 @@ public class BookingConf extends javax.swing.JFrame {
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         this.setVisible(false);
-        Ticket2 t2= new Ticket2();
-        t2.setVisible(true);
+        Ticket2 t= new Ticket2();
+        t.setVisible(true);
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
