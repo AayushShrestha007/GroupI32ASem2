@@ -3,18 +3,24 @@ package view;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import Contraints.Constant;
 import javax.swing.*;
 import Controller.logincontroller;
+import Controller.ticketcontroller;
 import Model.User;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author UTS
  */
 public class LoginScreen extends javax.swing.JFrame {
+    
+
 dbf d = new dbf();
     /**
      * Creates new form LoginScreen
@@ -111,6 +117,11 @@ dbf d = new dbf();
         jButton3.setText("Sign Up");
         jButton3.setBorderPainted(false);
         jButton3.setOpaque(true);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 710, -1, -1));
 
         canvas1.setBackground(new java.awt.Color(255, 255, 255));
@@ -133,19 +144,27 @@ dbf d = new dbf();
         String password=password1.getText();
         User u1= new User(uname,"",password);
         logincontroller lc= new logincontroller();
-        if(evt.getSource()==jButton1)
-            {
+       
+        if(evt.getSource()==jButton1){
                if(uname.equals("") || password.equals("")){
                     JOptionPane.showMessageDialog(null,"All fields required");
                 }
                else{
-                   ResultSet r = lc.retrieveflights(u1);
+                   ResultSet rs = lc.retrieveflights(u1);
                    try {
-                       if(r.next()){
+                       if(rs.next()){
+                           
+                           String fetched_uid = rs.getString("user_id");
+                           String fetched_userName = rs.getString("username");
+                           String fetched_email = rs.getString("email");
+                           String fetched_password = rs.getString("password");
+                           
+                           Constant.loggedInUser = new User(fetched_uid,fetched_userName,fetched_email,fetched_password);
+                           
                            JOptionPane.showMessageDialog(null,"login success");
                            this.setVisible(false);
-                           d.setVisible(true);                           
-                       }
+                           d.setVisible(true);
+                        }
                        else{
                            JOptionPane.showMessageDialog(null,"login invalid");
                        }
@@ -154,11 +173,13 @@ dbf d = new dbf();
                    }
                    
                }
-            }        // TODO add your handling code here:
+            }        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+this.dispose();
+new ChangePassword().setVisible(true);
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameActionPerformed
@@ -168,6 +189,12 @@ dbf d = new dbf();
     private void password1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_password1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.setVisible(false);
+        SIGNUP sg= new SIGNUP();
+        sg.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

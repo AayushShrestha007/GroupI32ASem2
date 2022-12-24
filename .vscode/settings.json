@@ -1,0 +1,10 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\UTS\\Downloads\\mysql-connector-java-8.0.30\\mysql-connector-java-8.0.30\\mysql-connector-java-8.0.30.jar",
+        "c:\\Users\\UTS\\Desktop\\KGradientPanel-master\\dist\\KGradientPanel.jar",
+        "c:\\Users\\UTS\\Desktop\\jar\\jcalendar-1.4.jar",
+        "c:\\Users\\UTS\\Desktop\\jar\\rs2xml.jar",
+        "c:\\Users\\UTS\\Desktop\\jar\\AbsoluteLayout.jar"
+    ]
+}

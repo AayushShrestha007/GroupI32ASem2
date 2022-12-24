@@ -220,6 +220,8 @@ public boolean testUserdetail(){
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+                this.dispose();
+        new LoginScreen().setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void tf_E_EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_E_EmailActionPerformed

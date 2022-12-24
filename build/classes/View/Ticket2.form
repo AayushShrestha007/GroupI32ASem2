@@ -110,7 +110,13 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                       <EmptySpace min="-2" pref="438" max="-2" attributes="0"/>
+=======
+                      <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
+                      <Component id="jButton8" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
+>>>>>>> prapti
                       <Component id="jButton9" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -146,7 +152,14 @@
                           <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="jButton9" min="-2" max="-2" attributes="0"/>
+=======
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jButton9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+>>>>>>> prapti
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="31" max="32767" attributes="0"/>
@@ -168,6 +181,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
                           <Component id="jRadioButton2" min="-2" pref="98" max="-2" attributes="0"/>
@@ -177,6 +191,8 @@
                           <Component id="jButton8" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
+=======
+>>>>>>> prapti
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
@@ -185,7 +201,17 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jLabel3" max="32767" attributes="0"/>
+<<<<<<< HEAD
                                       <Component id="jLabel1" max="32767" attributes="0"/>
+=======
+                                      <Group type="102" attributes="0">
+                                          <Component id="jRadioButton2" min="-2" pref="98" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jRadioButton1" min="-2" pref="86" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabel1" max="32767" attributes="0"/>
+                                      </Group>
+>>>>>>> prapti
                                   </Group>
                               </Group>
                           </Group>
@@ -201,7 +227,15 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+<<<<<<< HEAD
                           <Component id="jLabel1" min="-2" pref="28" max="-2" attributes="0"/>
+=======
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel1" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+>>>>>>> prapti
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -210,6 +244,7 @@
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jScrollPane3" pref="94" max="32767" attributes="0"/>
+<<<<<<< HEAD
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -217,6 +252,9 @@
                               <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+=======
+                          <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+>>>>>>> prapti
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -316,6 +354,12 @@
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+<<<<<<< HEAD
+=======
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="gTableMouseClicked"/>
+                      </Events>
+>>>>>>> prapti
                     </Component>
                   </SubComponents>
                 </Container>
@@ -429,6 +473,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
+<<<<<<< HEAD
                 <Component class="javax.swing.JButton" name="jButton8">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -443,6 +488,8 @@
                     <Property name="text" type="java.lang.String" value="Book"/>
                   </Properties>
                 </Component>
+=======
+>>>>>>> prapti
                 <Component class="javax.swing.JLabel" name="jLabel3">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -508,6 +555,12 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sort highest to lowest"/>
               </Properties>
+<<<<<<< HEAD
+=======
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+              </Events>
+>>>>>>> prapti
             </Component>
             <Component class="javax.swing.JButton" name="jButton3">
               <Properties>
@@ -613,12 +666,17 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                       <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
+=======
+                      <Component id="jLabel5" alignment="0" pref="542" max="32767" attributes="0"/>
+>>>>>>> prapti
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="location" min="-2" pref="200" max="-2" attributes="0"/>
                               <Component id="jLabel7" min="-2" pref="81" max="-2" attributes="0"/>
+<<<<<<< HEAD
                               <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="departure" min="-2" pref="200" max="-2" attributes="0"/>
@@ -633,6 +691,22 @@
                               </Group>
                           </Group>
                           <EmptySpace pref="194" max="32767" attributes="0"/>
+=======
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="departure" min="-2" pref="200" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jcall1" min="-2" pref="42" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                  <Component id="jButton10" min="-2" pref="60" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="197" max="32767" attributes="0"/>
+>>>>>>> prapti
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -646,6 +720,7 @@
                                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="location" min="-2" pref="28" max="-2" attributes="0"/>
+<<<<<<< HEAD
                                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
 <<<<<<< HEAD
@@ -656,6 +731,14 @@
                                   <Component id="departure" min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jButton10" alignment="1" min="-2" max="-2" attributes="0"/>
+=======
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="departure" min="-2" pref="28" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jButton10" min="-2" max="-2" attributes="0"/>
+>>>>>>> prapti
                               <Component id="jcall1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
@@ -732,6 +815,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                       <Component id="jLabel6" alignment="0" pref="480" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -749,6 +833,22 @@
                           <Component id="jcall2" min="-2" pref="43" max="-2" attributes="0"/>
 >>>>>>> 6ecd440b5f1b81c3a98c0fc4db42e53b193cadd1
                           <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+=======
+                      <Component id="jLabel6" alignment="0" pref="505" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel8" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                              <Component id="location1" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="returns" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jcall2" min="-2" pref="23" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+>>>>>>> prapti
                           <Component id="donb" min="-2" pref="60" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -757,6 +857,7 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jcall2" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
@@ -777,6 +878,22 @@
                                   </Group>
 >>>>>>> 6ecd440b5f1b81c3a98c0fc4db42e53b193cadd1
                               </Group>
+=======
+                          <Component id="jLabel6" min="-2" pref="106" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="location1" min="-2" pref="28" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="returns" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="donb" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jcall2" min="-2" max="-2" attributes="0"/>
+>>>>>>> prapti
                           </Group>
                           <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
                       </Group>
@@ -901,6 +1018,26 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton3ActionPerformed"/>
               </Events>
             </Component>
+<<<<<<< HEAD
+=======
+            <Component class="javax.swing.JButton" name="jButton8">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="33" red="0" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Century Schoolbook" size="14" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Book"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
+              </Events>
+            </Component>
+>>>>>>> prapti
           </SubComponents>
         </Container>
       </SubComponents>

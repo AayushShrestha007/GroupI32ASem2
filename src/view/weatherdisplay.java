@@ -83,14 +83,14 @@ public class weatherdisplay extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(sTable);
 
-        smriti.setText("jTextField1");
+        smriti.setEditable(false);
         smriti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 smritiActionPerformed(evt);
             }
         });
 
-        pramesh.setText("jButton1");
+        pramesh.setText("Search");
         pramesh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 prameshActionPerformed(evt);
