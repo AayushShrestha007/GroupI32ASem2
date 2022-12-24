@@ -4,6 +4,7 @@
  */
 package view;
 
+import Contraints.Constant;
 import Controller.logincontroller;
 import Database.DbConnection;
 
@@ -220,8 +221,11 @@ public boolean testUserdetail(){
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-                this.dispose();
-        new LoginScreen().setVisible(true);
+       int value=JOptionPane.showConfirmDialog(null, "Are you sure you want to Logout?", "Logout", JOptionPane.YES_NO_OPTION);
+        if(value==0){
+        this.dispose();
+        Constant.loggedInUser = null;
+        new LoginScreen().setVisible(true);   } 
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void tf_E_EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_E_EmailActionPerformed
