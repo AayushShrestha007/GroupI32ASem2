@@ -66,11 +66,6 @@ public class confirmationPage extends javax.swing.JFrame {
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/icons8-logout-64.png"))); // NOI18N
         jButton4.setContentAreaFilled(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/icons8-home-page-64.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
@@ -119,6 +114,11 @@ public class confirmationPage extends javax.swing.JFrame {
         button1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         button1.setForeground(new java.awt.Color(0, 51, 204));
         button1.setLabel("View Booking");
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -206,13 +206,11 @@ public class confirmationPage extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       int value=JOptionPane.showConfirmDialog(null, "Are you sure you want to Logout?", "Logout", JOptionPane.YES_NO_OPTION);
-        if(value==0){
-        this.dispose();
-        Constant.loggedInUser = null;
-        new LoginScreen().setVisible(true);   }     // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        this.setVisible(false);
+        Reviewbookingscreen r= new Reviewbookingscreen();
+        r.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_button1ActionPerformed
 
     /**
      * @param args the command line arguments
