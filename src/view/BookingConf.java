@@ -602,7 +602,12 @@ public class BookingConf extends javax.swing.JFrame {
     private void pTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pTextFieldActionPerformed
         
     }//GEN-LAST:event_pTextFieldActionPerformed
-
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        this.dispose();
+        new LoginScreen().setVisible(true);
+        
+    }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         if(Constant.loggedInUser != null){
