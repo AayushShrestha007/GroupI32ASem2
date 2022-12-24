@@ -353,7 +353,7 @@ public class Ticket2 extends javax.swing.JFrame {
         location1.setBackground(new java.awt.Color(204, 204, 255));
         location1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                location1ActionPerformed(evt);
+                // location1ActionPerformed(evt);
             }
         });
 

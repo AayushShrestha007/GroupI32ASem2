@@ -5,8 +5,13 @@
 package view;
 import Contraints.Constant;
 import Database.DbConnection;
+import Model.ticketDisplay;
 import java.sql.*;
 import net.proteanit.sql.DbUtils;
+import Controller.ticketcontroller;
+import Model.ticket;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author chaud
@@ -18,28 +23,7 @@ public class Reviewbookingscreen extends javax.swing.JFrame {
     public Reviewbookingscreen() {
         initComponents();
     }
-    public void display_details(){
-        
     
-        try{
-        
-            String query = "select departure,destination ,departure_date from flights" ;
-            Connection conn = DbConnection.connectdb();
-            PreparedStatement pst = conn.prepareStatement(query);
-            ResultSet rs = pst.executeQuery();
-            viewtable.setModel(DbUtils.resultSetToTableModel(rs));
-            
-            
-        }catch(Exception e){
-        
-        
-            System.out.println(e);
-            
-            
-        }
-    
-    
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -129,15 +113,10 @@ public class Reviewbookingscreen extends javax.swing.JFrame {
 
         viewtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Location 1", "Location 2", "Date"
+                "Location 1", "Location 2", "Date", "Airline Name"
             }
         ));
         jScrollPane1.setViewportView(viewtable);
@@ -234,9 +213,56 @@ public class Reviewbookingscreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+       DefaultTableModel tblModel= (DefaultTableModel)viewtable.getModel();
+
         
-       
+//        if(viewtable.getSelectedRowCount()==1){
+//            tblModel.removeRow(viewtable.getSelectedRow());
+//        }else{
+//
+//            if(viewtable.getRowCount()==0){
+//                JOptionPane.showMessageDialog(this,"Table is Empty");
+//                
+//                
+//            }else{
+//                JOptionPane.showMessageDialog(this, "Please select the flight that needs to be canceled out");
+//            }
+//            
+//        }
+        
+        if(Constant.loggedInUser != null){
+
+            
+
+
+            int row=viewtable.getSelectedRow();
+            if(viewtable.getSelectedRowCount()==0){
+                JOptionPane.showMessageDialog(null, "Select a ticket to delete first");
+                
+            }
+            else{
+            try{
+                String userName= loggedInUser.getText();
+                String location1= tblModel.getValueAt(row,0).toString();
+                String location2= tblModel.getValueAt(row,1).toString();
+                String date= tblModel.getValueAt(row,2).toString();
+                String airline= tblModel.getValueAt(row,3).toString();
+                ticket t = new ticket(airline,date,location1,location2,userName);
+                ticketcontroller t1= new ticketcontroller();
+                t1.deleteTicket(t);
+                tblModel.removeRow(row);
+                JOptionPane.showMessageDialog(null,"Flight Cancelled Sucessfully");
+                
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
+                
+            }
+            
+      
+            
+        }
+        
+        }   
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -260,14 +286,31 @@ public class Reviewbookingscreen extends javax.swing.JFrame {
            
         try{
         
-            String query = "select departure,destination ,departure_date from flights where username='"+getUserName+"'";
-            Connection conn = DbConnection.connectdb();
-            PreparedStatement pst1 = conn.prepareStatement(query);
-            ResultSet rs1 = pst1.executeQuery();
-            viewtable.setModel(DbUtils.resultSetToTableModel(rs1));
+            ticketDisplay tds= new ticketDisplay(loggedInUser.getText());
+            ticketcontroller tc= new ticketcontroller();
+            ResultSet newResult = tc.ticketFetch(tds);
+            if(newResult.next()){
+                ResultSet newResult2 = tc.ticketFetch(tds);
+                DefaultTableModel model = (DefaultTableModel) viewtable.getModel();
+                while(newResult2.next()){
+                int flightNumber = newResult2.getInt(3);
+                DbConnection db5= new DbConnection();
+                String getFlightData= "select * from flights where flight_number='"+flightNumber+"'";
+                ResultSet flightData= db5.retrieve(getFlightData);
+                flightData.next();
+                String loc1= flightData.getString("departure");
+                String loc2= flightData.getString("destination");
+                String Date= flightData.getString("departure_date");
+                String airline= flightData.getString("airline_name");
+                Object[] row = { loc1, loc2, Date,airline };
+                model.addRow(row);
+                }
+
             
-        
-            
+            }
+            else{
+                
+            }
             
         }catch(Exception e){
         
@@ -277,7 +320,7 @@ public class Reviewbookingscreen extends javax.swing.JFrame {
             
         }  
       
-        display_details();
+      
       }
 
         
