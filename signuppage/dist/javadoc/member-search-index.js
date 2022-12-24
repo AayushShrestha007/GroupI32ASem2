@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"newpackage","c":"Gradientpanel","l":"Gradientpanel()","u":"%3Cinit%3E()"},{"p":"newpackage","c":"Gradientpanel","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"<Unnamed>","c":"signup","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"<Unnamed>","c":"signup","l":"signup()","u":"%3Cinit%3E()"}];updateSearchResults();
