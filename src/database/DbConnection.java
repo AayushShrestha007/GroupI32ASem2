@@ -8,70 +8,70 @@
  * @author UTS
  */
 package Database;
-
 import java.sql.*;
-
 public class DbConnection {
     Connection con;
     Statement stm;
-    // PreparedStatement pst;
+//    PreparedStatement pst;
     ResultSet rs;
+    
 
     public DbConnection() {
         try {
 
-            // MAKE SURE YOU KEEP THE mysql_connector.jar file in java/lib folder
-            // ALSO SET THE CLASSPATH
+            //MAKE SURE YOU KEEP THE mysql_connector.jar file in java/lib folder
+            //ALSO SET THE CLASSPATH
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ars", "root", "Prapti@1");
-            // pst = con.prepareStatement("select * from user where username=? and
-            // password=?");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ars", "root", "sa4330156");
+//            pst = con.prepareStatement("select * from user where username=? and password=?");
 
         } catch (Exception e) {
             System.out.println(e);
         }
     }
-
-    public static Connection connectdb() {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ars", "root", "Prapti@1");
-
-            if (con != null) {
+    public static Connection connectdb(){
+        try{Class.forName("com.mysql.cj.jdbc.Driver");
+           
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ars", "root", "sa4330156");
+            
+            if(con!=null){
                 System.out.println("Successfully connected to database");
                 return con;
             }
-
-        } catch (Exception e) {
+            
+        }catch(Exception e){
             System.out.println(e);
             System.out.println("Not connected");
-
+            
         }
         return null;
-
+        
     }
 
-    public int manipulates(String queries) {
-        int value = 0;
-        try {
 
+    public int manipulates (String queries){
+        int value=0;
+        try{
+            
             stm = con.createStatement();
             value = stm.executeUpdate(queries);
             con.close();
-        } catch (SQLException e) {
+        }
+        catch(SQLException e){
             e.printStackTrace();
         }
         return value;
     }
-
-    public ResultSet retrieve(String query) {
+    
+    
+    public ResultSet retrieve(String query){
 
         try {
             stm = con.createStatement();
             rs = stm.executeQuery(query);
+            
 
-        } catch (SQLException e) {
+        }catch (SQLException e){
 
             e.printStackTrace();
 
@@ -80,8 +80,10 @@ public class DbConnection {
         return rs;
 
     }
-
-    public static void main(String[] args) {
+    
+    
+    public static void main(String[] args){
         DbConnection.connectdb();
     }
 }
+

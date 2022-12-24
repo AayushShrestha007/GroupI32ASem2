@@ -12,12 +12,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 /**
  *
  * @author 20pra
  */
- public class BookingConf extends javax.swing.JFrame {
+public class BookingConf extends javax.swing.JFrame {
 
     /**
      * Creates new form BookingConf
@@ -101,11 +100,6 @@ import javax.swing.JOptionPane;
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/icons8-home-page-64.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/icons8-available-updates-64.png"))); // NOI18N
         jButton2.setContentAreaFilled(false);
@@ -320,7 +314,7 @@ import javax.swing.JOptionPane;
         dAName.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("Logged In As:");
+        jLabel18.setText("LoggedIn As:");
 
         lblLogedInUsername.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -376,7 +370,7 @@ import javax.swing.JOptionPane;
                                 .addComponent(dAName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(198, 198, 198)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel15)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
@@ -424,7 +418,7 @@ import javax.swing.JOptionPane;
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(aPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -608,32 +602,16 @@ import javax.swing.JOptionPane;
     private void pTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pTextFieldActionPerformed
         
     }//GEN-LAST:event_pTextFieldActionPerformed
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {                                      
-        // TODO add your handling code here:
-           int value=JOptionPane.showConfirmDialog(null, "Are you sure you want to Logout?", "Logout", JOptionPane.YES_NO_OPTION);
-        if(value==0){
-        this.dispose();
-        Constant.loggedInUser = null;
-        new LoginScreen().setVisible(true);   } 
-        
-    }
+
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         if(Constant.loggedInUser != null){
         String getUserName = Constant.loggedInUser.getUsername();
         lblLogedInUsername.setText(getUserName);
+      
+        
     }//GEN-LAST:event_formWindowOpened
     }
-    
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setVisible(false);
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new dbf().setVisible(true);
-            }
-        });// TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
