@@ -1,4 +1,8 @@
 package view;
+
+import Contraints.Constant;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -289,8 +293,11 @@ public class dbf extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+       int value=JOptionPane.showConfirmDialog(null, "Are you sure you want to Logout?", "Logout", JOptionPane.YES_NO_OPTION);
+        if(value==0){
         this.dispose();
-        new LoginScreen().setVisible(true);        // TODO add your handling code here:
+        Constant.loggedInUser = null;
+        new LoginScreen().setVisible(true);   }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
