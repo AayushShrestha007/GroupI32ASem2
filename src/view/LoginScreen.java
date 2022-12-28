@@ -50,10 +50,13 @@ dbf d = new dbf();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1275, 755));
+        setPreferredSize(new java.awt.Dimension(1106, 755));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setAlignmentX(0.0F);
+        jPanel1.setPreferredSize(new java.awt.Dimension(1106, 755));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         welcome.setFont(new java.awt.Font("MS Mincho", 1, 28)); // NOI18N
@@ -71,7 +74,7 @@ dbf d = new dbf();
                 UsernameActionPerformed(evt);
             }
         });
-        jPanel1.add(Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 280, 220, 50));
+        jPanel1.add(Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 240, 220, 50));
 
         password1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         password1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -82,7 +85,7 @@ dbf d = new dbf();
                 password1ActionPerformed(evt);
             }
         });
-        jPanel1.add(password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 390, 220, 50));
+        jPanel1.add(password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 330, 220, 50));
 
         jButton1.setBackground(new java.awt.Color(255, 0, 51));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
@@ -93,7 +96,7 @@ dbf d = new dbf();
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 500, 180, 50));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 430, 180, 50));
 
         jButton2.setBackground(new java.awt.Color(0, 102, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -105,12 +108,12 @@ dbf d = new dbf();
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 610, 160, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 500, 160, 30));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Don't have an account?");
         jLabel1.setIconTextGap(1);
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 710, 124, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 550, 150, 30));
 
         jButton3.setBackground(new java.awt.Color(0, 102, 255));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
@@ -122,7 +125,7 @@ dbf d = new dbf();
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 710, -1, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 550, -1, -1));
 
         canvas1.setBackground(new java.awt.Color(255, 255, 255));
         canvas1.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,12 +133,12 @@ dbf d = new dbf();
         jPanel1.add(canvas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 730, 70, 2));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/Loginmainimage.png"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1220, 750));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 800));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
