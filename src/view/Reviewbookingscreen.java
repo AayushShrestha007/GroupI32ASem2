@@ -231,7 +231,7 @@ public class Reviewbookingscreen extends javax.swing.JFrame {
         
         if(Constant.loggedInUser != null){
 
-            //for loggedin user 
+            //for logged in user 
             
 
 
@@ -240,6 +240,7 @@ public class Reviewbookingscreen extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Select a ticket to delete first");
                 
             }
+            //else block
             else{
             try{
                 String userName= loggedInUser.getText();
