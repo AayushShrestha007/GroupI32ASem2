@@ -900,7 +900,7 @@ public class Ticket2 extends javax.swing.JFrame {
 
 
 
-//                   String resultDuration= flightResult2.getString("duration");
+
 //                   String resultBPrice= String.valueOf(flightResult2.getString("business_price"));
 //                   String resultEPrice= String.valueOf(flightResult2.getString("economy_price"));
 //                   String resultCabin= flightResult2.getString("cabin_capacity");
