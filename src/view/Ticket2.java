@@ -695,7 +695,7 @@ public class Ticket2 extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
     
-            
+         //Flight classes   
      String dep_loc=location.getText();
      String arri_loc=location1.getText();
      String dep_date=departure.getText();
