@@ -433,6 +433,7 @@ LoginScreen l1= new LoginScreen();
             java.util.logging.Logger.getLogger(SIGNUP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         java.awt.EventQueue.invokeLater(new Runnable() {
+            //signup page
             public void run() {
                 new SIGNUP().setVisible(true);
             }
