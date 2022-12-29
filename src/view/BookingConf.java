@@ -594,6 +594,7 @@ public class BookingConf extends javax.swing.JFrame {
        String destination1 = dTo.getText();
        String dDate= dDar.getText();
        String AName= dAName.getText();
+       //setting up variables
        
        String departure2 = aFrom.getText();
        String destination2 = aTo.getText();
