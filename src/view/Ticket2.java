@@ -853,7 +853,6 @@ public class Ticket2 extends javax.swing.JFrame {
           
            
        } 
-//     else if(jRadioButton3.isSelected()){
                
     
     else if(jRadioButton3.isSelected()){
