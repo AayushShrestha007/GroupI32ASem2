@@ -227,7 +227,7 @@ public class weatherdisplay extends javax.swing.JFrame {
         // TODO add your handling code here:
         String weather_field= smriti.getText();
         
-        
+        //displaying
         if(smriti.getText().isEmpty()){
             JOptionPane.showMessageDialog(this,"Please enter the location");
         }
