@@ -314,7 +314,8 @@ public class dbf extends javax.swing.JFrame {
         setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed 
+        //Home page
        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new dbf().setVisible(true);
