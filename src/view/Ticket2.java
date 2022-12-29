@@ -569,6 +569,7 @@ public class Ticket2 extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        //Sorting
         TableRowSorter<TableModel> sorter2 = new TableRowSorter<TableModel>(gTable.getModel());
         gTable.setRowSorter(sorter2);
         ArrayList<RowSorter.SortKey> sortKeys2 = new ArrayList<RowSorter.SortKey>();
