@@ -289,7 +289,8 @@ LoginScreen l1= new LoginScreen();
         String password=jTextField6.getText();
         String cPassword=jTextField7.getText();
         //getting esste
-
+        //if statement
+        
         if(uname.equals("") || password.equals("") || cPassword.equals("") || email.equals("") || cxb1.isSelected()==false){
             JOptionPane.showMessageDialog(null,"All fields required");
         }
