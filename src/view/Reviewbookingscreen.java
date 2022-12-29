@@ -289,7 +289,8 @@ public class Reviewbookingscreen extends javax.swing.JFrame {
       if(Constant.loggedInUser != null){
             String getUserName = Constant.loggedInUser.getUsername();
             loggedInUser.setText(getUserName);
-           
+          
+        //exception    
         try{
         
             ticketDisplay tds= new ticketDisplay(loggedInUser.getText());
