@@ -903,7 +903,6 @@ public class Ticket2 extends javax.swing.JFrame {
 
 
 
-//                   String resultRefundable= String.valueOf(flightResult2.getString("refundable"));
                    
                    
                    String tbData[] = {resultAirlineName,resultDeparture,resultDestination,resultDTime,resultATime,resultDDate,resultDuration,
