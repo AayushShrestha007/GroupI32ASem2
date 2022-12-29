@@ -128,6 +128,7 @@ public class ChangePassword extends javax.swing.JFrame {
                         System.out.println("Password Updated Successfully");
                         JOptionPane.showMessageDialog(null, "Password Updated Successfully");
                         }else{System.out.println("Error updating password");}
+                        //catchblock
                     }catch(SQLException ex){
                         System.out.println(ex);
                     }
