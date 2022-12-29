@@ -680,6 +680,7 @@ public class BookingConf extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        //Change profile
         this.dispose();
         new ChangeProfile().setVisible(true);  
         
