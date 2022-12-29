@@ -607,7 +607,7 @@ public class BookingConf extends javax.swing.JFrame {
        if(departure2.isEmpty()){
        ticket t1= new ticket(AName,dDate,departure1,destination1,Uname);
        ticketcontroller tc1= new ticketcontroller();
-       
+       //connection to controll
        
        try {
            tc1.insertTicket(t1);
