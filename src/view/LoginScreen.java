@@ -156,6 +156,7 @@ dbf d = new dbf();
                    ResultSet rs = lc.retrieveflights(u1);
                    try {
                        if(rs.next()){
+                        //getting essentials
                            
                            String fetched_uid = rs.getString("user_id");
                            String fetched_userName = rs.getString("username");
