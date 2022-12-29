@@ -592,6 +592,7 @@ public class Ticket2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Refundable
         DefaultTableModel tb1Model3= (DefaultTableModel)gTable.getModel();
         TableRowSorter<DefaultTableModel> tr= new TableRowSorter<DefaultTableModel>(tb1Model3);
         gTable.setRowSorter(tr);
