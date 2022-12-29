@@ -778,7 +778,7 @@ public class Ticket2 extends javax.swing.JFrame {
            try {
                
                
-//               
+              
                
                ResultSet flightResult= t1.retrieveflights(f1);
                ResultSet flightResult2 = t1.retrieveflights(f2);
@@ -861,13 +861,12 @@ public class Ticket2 extends javax.swing.JFrame {
         }
         else{
            Flights f1= new Flights(arri_loc,dep_loc,dep_date);
-//           Flights f2= new Flights(dep_loc,arri_loc,dep_date);
            ticketsearchcontroller t1= new ticketsearchcontroller();
            
            try {
                
                
-//               
+         
                
                ResultSet flightResult= t1.retrieveflights(f1);
 
@@ -893,7 +892,7 @@ public class Ticket2 extends javax.swing.JFrame {
                    String resultRefundable= flightResult.getString("refundable");
                   
                 
-//                   DefaultTableModel tb1Model2= (DefaultTableModel)rTable.getModel();
+
 //                   while(tb1Model2.getRowCount() > 0){ tb1Model2.removeRow(0);}
 //                   while (flightResult2.next()){
 //                   String resultAirlineName=flightResult2.getString("airline_name");
