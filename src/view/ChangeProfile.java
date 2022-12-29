@@ -316,6 +316,7 @@ public boolean testUserdetail(){
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         // TODO add your handling code here:
+        //Delete Query
             String email=tf_E_Email.getText();
             String user=tf_E_User.getText();
             String pass=tf_E_Pass.getText();
