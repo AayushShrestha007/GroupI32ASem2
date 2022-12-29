@@ -294,6 +294,7 @@ LoginScreen l1= new LoginScreen();
         if(uname.equals("") || password.equals("") || cPassword.equals("") || email.equals("") || cxb1.isSelected()==false){
             JOptionPane.showMessageDialog(null,"All fields required");
         }
+        //else statement
         else{
             if(password.equals(cPassword)){
                 User u1= new User(uname,email,password);
