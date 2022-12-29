@@ -898,7 +898,7 @@ public class Ticket2 extends javax.swing.JFrame {
 
 
 //                   String resultDestination= flightResult2.getString("destination");
-//                   String resultDTime= flightResult2.getString("departure_time");
+
 //                   String resultATime= flightResult2.getString("arrival_time");
 //                   String resultDDate= String.valueOf(flightResult2.getDate("departure_date"));
 //                   String resultDuration= flightResult2.getString("duration");
