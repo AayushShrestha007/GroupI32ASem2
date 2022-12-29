@@ -415,6 +415,7 @@ LoginScreen l1= new LoginScreen();
     public static void main(String args[]) {
         //try block
         try {
+            //for loop
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
