@@ -296,6 +296,7 @@ LoginScreen l1= new LoginScreen();
         }
         //else statement
         else{
+            //nested if
             if(password.equals(cPassword)){
                 User u1= new User(uname,email,password);
                 signupcontroller s1= new signupcontroller();
