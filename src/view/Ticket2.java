@@ -893,14 +893,7 @@ public class Ticket2 extends javax.swing.JFrame {
                    String resultCheckin= flightResult.getString("checkin_capacity");
                    String resultRefundable= flightResult.getString("refundable");
                   
-                   
-//                   String tbData[] = {resultAirlineName,resultDeparture,resultDestination,resultDTime,resultATime,resultDDate,resultDuration,
-//                       resultBPrice,resultEPrice,resultCabin,resultCheckin,resultRefundable
-//                    };
-//                   
-//                   tb1Model.addRow(tbData);
-                   
-//               }
+                
 //                   flightResult2 = t1.retrieveflights(f2);
 //                   DefaultTableModel tb1Model2= (DefaultTableModel)rTable.getModel();
 //                   while(tb1Model2.getRowCount() > 0){ tb1Model2.removeRow(0);}
