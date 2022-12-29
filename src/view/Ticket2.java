@@ -752,30 +752,6 @@ public class Ticket2 extends javax.swing.JFrame {
                    tb1Model.addRow(tbData);
                    
                }
-//                   flightResult2 = t1.retrieveflights(f2);
-//                   DefaultTableModel tb1Model2= (DefaultTableModel)rTable.getModel();
-//                   while(tb1Model2.getRowCount() > 0){ tb1Model2.removeRow(0);}
-//                   while (flightResult2.next()){
-//                   String resultAirlineName=flightResult2.getString("airline_name");
-//                   String resultDeparture=flightResult2.getString("departure");
-//                   String resultDestination= flightResult2.getString("destination");
-//                   String resultDTime= flightResult2.getString("departure_time");
-//                   String resultATime= flightResult2.getString("arrival_time");
-//                   String resultDDate= String.valueOf(flightResult2.getDate("departure_date"));
-//                   String resultDuration= flightResult2.getString("duration");
-//                   String resultBPrice= String.valueOf(flightResult2.getString("business_price"));
-//                   String resultEPrice= String.valueOf(flightResult2.getString("economy_price"));
-//                   String resultCabin= flightResult2.getString("cabin_capacity");
-//                   String resultCheckin= flightResult2.getString("checkin_capacity");
-//                   String resultRefundable= String.valueOf(flightResult2.getString("refundable"));
-//                   
-//                   
-//                   String tbData2[] = {resultAirlineName,resultDeparture,resultDestination,resultDTime,resultATime,resultDDate,resultDuration,
-//                       resultBPrice,resultEPrice,resultCabin,resultCheckin,resultRefundable
-//                   };
-//                   
-//                   tb1Model2.addRow(tbData2);
-//               }
     
            }
                else{
