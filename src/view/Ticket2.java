@@ -722,7 +722,7 @@ public class Ticket2 extends javax.swing.JFrame {
 //               
                
                ResultSet flightResult= t1.retrieveflights(f1);
-               //ResultSet flightResult2 = t1.retrieveflights(f2);
+               
                
                if(flightResult.next()){
                flightResult= t1.retrieveflights(f1);
@@ -893,8 +893,8 @@ public class Ticket2 extends javax.swing.JFrame {
                   
                 
 
-//                   while(tb1Model2.getRowCount() > 0){ tb1Model2.removeRow(0);}
-//                   while (flightResult2.next()){
+
+
 //                   String resultAirlineName=flightResult2.getString("airline_name");
 //                   String resultDeparture=flightResult2.getString("departure");
 //                   String resultDestination= flightResult2.getString("destination");
