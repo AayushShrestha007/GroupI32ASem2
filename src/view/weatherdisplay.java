@@ -256,6 +256,7 @@ public class weatherdisplay extends javax.swing.JFrame {
                     }
                    }
                }
+               //catchblockwithexcept
                 catch(SQLException ex){
                     
                         Logger.getLogger(weatherdisplay.class.getName()).log(Level.SEVERE, null, ex);
