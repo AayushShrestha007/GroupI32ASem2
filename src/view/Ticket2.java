@@ -903,7 +903,6 @@ public class Ticket2 extends javax.swing.JFrame {
 
 
 
-//                   String resultCheckin= flightResult2.getString("checkin_capacity");
 //                   String resultRefundable= String.valueOf(flightResult2.getString("refundable"));
                    
                    
