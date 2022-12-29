@@ -622,7 +622,7 @@ public class BookingConf extends javax.swing.JFrame {
        ticket t2= new ticket(AName2,dDate2,departure2,destination2,Uname);
        ticketcontroller tc2= new ticketcontroller();
        ticketcontroller tc3= new ticketcontroller();
-       
+       //for try block
        
        try {
            tc2.insertTicket(t1);
