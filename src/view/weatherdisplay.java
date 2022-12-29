@@ -249,7 +249,7 @@ public class weatherdisplay extends javax.swing.JFrame {
                    
                    String tbData[] = {resultLocation,resultTemperature,resultForecast
                     };
-                   
+                   //fromtable
                    tbl1Model.addRow(tbData);
                         
                         
