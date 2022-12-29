@@ -662,6 +662,7 @@ public class Ticket2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        //Sorting
         if (buttonOne.isSelected()){
         int column= 7;
         int row= gTable.getSelectedRow();
