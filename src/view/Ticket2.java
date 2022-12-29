@@ -646,7 +646,7 @@ public class Ticket2 extends javax.swing.JFrame {
             String value7=rTable.getModel().getValueAt(row7,column7).toString();
             int value8= Integer.parseInt (value6)+Integer.parseInt(value7);
             System.out.println(value8);
-            
+            //print
         }else if(jRadioButton3.isSelected()){
             int column8= 8;
         int row8= gTable.getSelectedRow();
