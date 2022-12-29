@@ -308,6 +308,7 @@ public boolean testUserdetail(){
     }//GEN-LAST:event_btnsaveActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        //home_page
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new dbf().setVisible(true);
