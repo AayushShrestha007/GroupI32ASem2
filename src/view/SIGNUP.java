@@ -416,6 +416,7 @@ LoginScreen l1= new LoginScreen();
                     break;
                 }
             }
+        //catch statement
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(SIGNUP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
