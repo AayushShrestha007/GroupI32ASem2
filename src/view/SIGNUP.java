@@ -267,6 +267,7 @@ LoginScreen l1= new LoginScreen();
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        //privacy policy window
         privacypolicy p1=new privacypolicy();
         p1.show();
     }//GEN-LAST:event_jButton4ActionPerformed
