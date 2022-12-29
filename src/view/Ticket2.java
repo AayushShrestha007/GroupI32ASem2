@@ -713,7 +713,7 @@ public class Ticket2 extends javax.swing.JFrame {
          }
          else{
            Flights f1= new Flights(arri_loc,dep_loc,dep_date);
-           //Flights f2= new Flights(dep_loc,arri_loc,ret_date);
+           
            ticketsearchcontroller t1= new ticketsearchcontroller();
            
            try {
