@@ -245,6 +245,7 @@ public class Customer_review extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        //Home_page
 java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new dbf().setVisible(true);
