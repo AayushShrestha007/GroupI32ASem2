@@ -368,3 +368,5 @@ public class dbf extends javax.swing.JFrame {
     private keeptoo.KGradientPanel kGradientPanel1;
     // End of variables declaration//GEN-END:variables
 }
+
+//ends here
