@@ -224,6 +224,7 @@ public class Customer_review extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        //Change Profile
         this.dispose();
         new ChangeProfile().setVisible(true); 
     }//GEN-LAST:event_jButton8ActionPerformed
