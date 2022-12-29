@@ -272,6 +272,7 @@ LoginScreen l1= new LoginScreen();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //login screen
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 610, 160, 30));
         LoginScreen s1 =new LoginScreen();
         s1.setVisible(true);
